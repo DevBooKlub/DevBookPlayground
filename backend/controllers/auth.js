@@ -96,6 +96,60 @@ export const verification = async (req, res, next) => {
   }
 };
 
+// Login Controller
+
+
+/* -------------------------------------------- */
+/*                    SIGN-IN                   */
+/* -------------------------------------------- */
+export const Login = async (req, res, next) => {
+  try {
+    //destructure the body
+    const { email, password } = req.body;
+
+    //if email or password not exist
+    if (!email || !password) {
+      return next(
+        createError(400, "Please provide email and password for login")
+      );
+    }
+
+    //1. find a user with given email
+    const user = await User.findOne({ email }).select("+password");
+
+    //2. compare given password with hashed value
+    if (user && comparePass) {
+      //create the token
+      const token = jwt.sign(
+        { userid: user._id }, //payload
+        process.env.JWT_SECRET, //secret key
+        { expiresIn: "5d" } //expiration
+      );
+
+      user.password = undefined; //remove password (shouldn't send password to frontend)
+
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+          sameSite: false,
+          domain: "localhost",
+          expires: new Date(Date.now() + 3600_000 * 24 * 30),
+        })
+        .send({
+          status: "success",
+          message: "Logged In successfully!",
+        });
+    } else {
+      res.status(401).send({
+        status: "Login failure",
+        message: "Email or password is not valid.",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 
 
 

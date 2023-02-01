@@ -1,51 +1,49 @@
-import nodemailer from "nodemailer";
-import crypto from "crypto";
-import sendgridTransport from "nodemailer-sendgrid-transport";
-import { MailToken } from "../models/token.js";
+import nodemailer from 'nodemailer';
+import crypto from 'crypto';
+import sendgridTransport from 'nodemailer-sendgrid-transport';
+import { MailToken } from '../models/token.js';
 
 //sendgrid transporter
 export const transporter = nodemailer.createTransport(
-  sendgridTransport({
-    auth: {
-      api_key: process.env.SENDGRID_API_KEY,
-    },
-  })
-);
+    sendgridTransport({
+      auth: {
+        api_key: process.env.SENDGRID_API_KEY,
+      },
+    })
+  );
 
-//send verification email
-export const send_verify_email = async (
-  from,
-  to,
-  subject,
-  userID,
-  username
-) => {
-  try {
-    //create verification token and insert it into dB
-    const new_mail_token = await MailToken.create({
-      uid: userID,
-      token: crypto.randomBytes(32).toString("hex"),
-    });
-    // console.log('new_mailtoken', new_mailtoken)
-    // console.log(transporter)
-    //generate message of the email
-    const verify_msg = mail_msg_template(
-      username,
-      `http://localhost:5555/api/verify/email/${new_mail_token.uid}/${new_mail_token.token}`
-    );
+  
+  //send verification email
+export const send_verify_email = async (from, to, subject, userID, username) => {
 
-    // console.log('verify_message', verify_msg)
+    try {
+        
+        //create verification token and insert it into dB
+        const new_mail_token = await MailToken.create({
+            uid: userID,
+            token: crypto.randomBytes(32).toString('hex')
+        });
+        // console.log('new_mailtoken', new_mailtoken)
+        // console.log(transporter)
+        //generate message of the email
+        const verify_msg = mail_msg_template(
+            username,
+            `${process.env.BASE_URL}/api/verify/email/${new_mail_token.uid}/${new_mail_token.token}`
+        );
 
-    //send email
-    await transporter.sendMail({ from, to, subject, html: verify_msg });
-  } catch (error) {
-    console.error(error.message);
-  }
-};
+        // console.log('verify_message', verify_msg)
+    
+        //send email
+        await transporter.sendMail({from, to, subject, html:verify_msg});
+        
+    } catch (error) {
+        console.error(error.message);
+    }
+}
 
 function mail_msg_template(username, link) {
-  // console.log('function mail_msg_template');
-  return `
+    // console.log('function mail_msg_template');
+    return `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -130,3 +128,4 @@ function mail_msg_template(username, link) {
 
 `;
 }
+

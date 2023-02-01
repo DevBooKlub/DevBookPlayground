@@ -9,11 +9,14 @@ import authRouter from './routers/auth.js';
 
 const app = express();
 dotenv.config();
+const config ={
+    origin:"*",
 
+}
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(config));
 
 //! use passport and initialize
 app.use(passport.initialize());
