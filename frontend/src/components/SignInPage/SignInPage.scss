@@ -29,7 +29,8 @@
 
       h2 {
         // color: $fontColor;
-        font-size: 3.4rem;
+        font-size: 3rem;
+        line-height: 45px;
       }
     }
   }
@@ -71,8 +72,9 @@
         background-color: white;
 
         &::placeholder {
-          color: $colorPlaceholder;
+          background-color: rgb(255, 255, 255);
           font-size: 1.4rem;
+          color: black;
         }
       }
 
