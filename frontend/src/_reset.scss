@@ -1,0 +1,67 @@
+@import "./variables/variables.scss";
+
+.light {
+  .text {
+    color: $fontColorLight;
+  }
+
+  .background {
+    background-color: $primaryLight;
+
+    
+  }
+
+  .backgroundInner {
+    background-color: $primaryLight;
+  }
+
+  .accent {
+    color: $accentLight;
+  }
+
+  .placeholder {
+    color: $colorPlaceholderLight;
+  }
+
+  .border {
+    border: 2px solid $accentLight;
+    
+  }
+
+  .border-line {
+    border: 1px solid black;
+  }
+}
+
+.dark {
+  .text {
+    color: $fontColor;
+  }
+
+  .background {
+    background-color: $primary;
+
+   
+  }
+
+  .backgroundInner {
+    background-color: $secondary;
+  }
+
+  .accent {
+    color: $accent;
+  }
+
+  .placeholder {
+    color: $colorPlaceholder;
+  }
+
+  .border {
+    border: 1px solid $accent;
+    background: none;
+  }
+
+  .border-line {
+    border: 1px solid white;
+  }
+}

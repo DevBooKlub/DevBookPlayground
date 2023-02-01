@@ -1,0 +1,128 @@
+@import "../../variables/variables.scss";
+@import "../../_reset.scss";
+
+.background {
+  display: flex;
+  height: 100vh;
+}
+
+.theme-btn {
+  position: absolute;
+  width: 50px;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+.sign-section-left {
+  width: 50%;
+  // border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .left-section-box {
+    width: 80%;
+
+    .sign-text-container {
+      width: 100%;
+
+      h2 {
+        // color: $fontColor;
+        font-size: 3.4rem;
+      }
+    }
+  }
+}
+
+.sign-section-right {
+  // border: 1px solid yellow;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sign-form-box {
+    // background-color: $secondary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30rem;
+    max-height: 50rem;
+    width: 50%;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid black;
+
+    .form {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        height: 3rem;
+        border: none;
+        border-radius: 3px;
+        margin-top: 2rem;
+        width: 286px;
+        border: 1px solid black;
+        background-color: white;
+
+        &::placeholder {
+          color: $colorPlaceholder;
+          font-size: 1.4rem;
+        }
+      }
+
+      .button-sign-in {
+        margin-top: 1.5rem;
+        width: 12rem;
+        height: 4rem;
+        background: none;
+        // border: 1px solid $accent;
+        border-radius: 10px;
+        // color: $fontColor;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: 0.1s ease-in-out;
+        }
+      }
+    }
+  }
+
+  a {
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    p {
+      font-size: 1.3rem;
+      text-decoration: none;
+      // color: $fontColor;
+    }
+  }
+
+  .border-white {
+    // border: 1px solid white;
+    width: 256px;
+    margin-top: 0.5rem;
+  }
+
+  .create-acc-btn {
+    background: none;
+    margin-top: 2rem;
+    // border: 1px solid $accent;
+    height: 5rem;
+    width: 16rem;
+    // color: $fontColor;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.1s ease-in-out;
+    }
+  }
+}
