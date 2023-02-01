@@ -24,9 +24,10 @@ const UserSchema = mongoose.Schema ({
         validator: function (confirm) {
              return confirm === this.password
         },
-        message: 'Passwords dont match!'   },
-    }
-    // userPic: String,
+        message: 'Passwords dont match!' 
+      }
+    },
+    userPic: String,
 
    
 });
