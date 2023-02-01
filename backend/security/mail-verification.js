@@ -114,7 +114,7 @@ function mail_msg_template(username, link) {
         </head>
         <body>
             <div class="container">
-                <h3 id="logo">JobPortal</h3>
+                <h3 id="logo">DevBook</h3>
                 <h4 id="title">Hi ${username},</h4>
                 <p>Thanks for creating a DevBook account. Please verify your email address by clicking the button below and Develop your Connections.</p>
                 <div>
