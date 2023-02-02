@@ -31,7 +31,7 @@ if ( !username || !email || !password || !confirm) {
     username,
     email,
     password,
-    // userPic: "/uploads/images/" + req.file.filename,
+    userPic: "/uploads/images/" + req.file.filename,
   });
 
   let token;

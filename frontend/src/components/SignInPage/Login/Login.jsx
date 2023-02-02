@@ -5,7 +5,6 @@ import Modal from "../Modal/Modal"
 
 
 
-
 function Login({open, setOpen}) {
   
     const openModal = () => {
