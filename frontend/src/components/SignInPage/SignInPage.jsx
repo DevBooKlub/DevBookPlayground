@@ -8,6 +8,7 @@ import lightImg from "../../assets/img/lightImg.png";
 import Overlay from "./Overlay/Overlay";
 import Modal from "./Modal/Modal";
 import "../../_reset.scss";
+import Login from "./Login/Login"
 
 function SignInPage() {
   const [open, setOpen] = useState(false);
@@ -47,39 +48,7 @@ function SignInPage() {
           </div>
         </div>
         <div className="sign-section-right">
-          <div className="sign-form-box backgroundInner ">
-            <form className="form" action="">
-              <input
-                className="border "
-                type="text"
-                placeholder="Login"
-                id="login"
-              />
-              <input
-                className="border "
-                type="text"
-                placeholder="Password"
-                id="password"
-              />
-              <button
-                className="button-sign-in border text"
-                type="submit"
-                id="button"
-              >
-                Sign In!
-              </button>
-            </form>
-
-            <a href="#">
-              <p className="text">Forgot your password?</p>
-            </a>
-
-            <div className="border-white border-line"></div>
-
-            <button onClick={openModal} className="create-acc-btn border text">
-              Create Account
-            </button>
-          </div>
+       <Login  open={open} setOpen={setOpen}/>
         </div>
       </div>
     </div>
