@@ -2,6 +2,7 @@ import User from '../models/user.js';
 import jwt from "jsonwebtoken";
 import { MailToken }  from '../models/token.js';
 import {comparePass} from '../security/auth.js';
+import createError from 'http-errors';
 
 import dotenv from 'dotenv';
 import { send_verify_email } from '../security/mail-verification.js'
