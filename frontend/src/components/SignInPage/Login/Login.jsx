@@ -13,21 +13,34 @@ function Login({open, setOpen}) {
         setOpen(true);
       };
 
+      const [user, setUser] = useState({
+        
+        email: "",
+        password: "",
+    
+      });
+
+      const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
+      };
+
       const handleSubmit = async (event) => {
         event.preventDefault();
     
         const formData = new FormData(event.target);
+
+        
     
-        const data = {
+        const data =   {
           email: formData.get("email"),
           password: formData.get("password"),
         };
-        const config = {
-          data,
-        };
+        // const config = {
+        //   data,
+        // };
         axios.defaults.withCredentials = true;
         try {
-          const response = await axios.post("/api/login", config);
+          const response = await axios.post("/api/login", data);
           console.log(response.data);
           // setMsg(response.data.msg);
     
@@ -46,14 +59,18 @@ function Login({open, setOpen}) {
           type="text"
           placeholder="Login"
           id="email"
+          name="email"
           required={true} 
+          onChange={handleChange}
         />
         <input
           className="border "
           type="text"
           placeholder="Password"
           id="password"
+          name="password"
           required={true}
+          onChange={handleChange}
         />
         <button
           className="button-sign-in border text"
