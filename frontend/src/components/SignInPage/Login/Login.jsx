@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import "../SignInPage.scss";
 import "../Modal/Modal.scss"
 import Modal from "../Modal/Modal"
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 
 
 
 function Login({open, setOpen}) {
+
+  const navigate = useNavigate();
   
     const openModal = () => {
         setOpen(true);
@@ -44,7 +47,7 @@ function Login({open, setOpen}) {
           console.log(response.data);
           // setMsg(response.data.msg);
     
-          // navigate("/home");
+          navigate("/profile");
         } catch (error) {
           console.log(error);
         }
