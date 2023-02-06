@@ -12,23 +12,23 @@ import { AuthContext } from "../../../context/authContext";
 function Post({ post, theme }) {
   const [commentOpen, setCommentOpen] = useState(false);
 
-  const { currentUser } = useContext(AuthContext);
+  const { state, dipatch } = useContext(AuthContext);
 
   return (
     <div className="single-post-container backgroundInner box-shadow">
       <div className="single-post-wraper">
         <div className="user">
           <div className="userInfo">
-           {post.profilePic && <img className="user-img" src={currentUser.profilePic} alt="" />}
+           {post.profilePic && <img className="user-img" src={state.currentUser.userPic} alt="" />}
             <div className="details">
-              <span className="user-name text">{post.name}</span>
+              <span className="user-name text">{state.currentUser.username}</span>
               <span className="post-date text">2 min ago</span>
             </div>
           </div>
         </div>
         <div className="content">
-          <p className="post-text text">{post.desc}</p>
-          <img src={post.postPic} alt="" />
+          <p className="post-text text">{state.currentUser.username}</p>
+          <img src={state.currentUser.userPic} alt="" />
         </div>
         <div className="info-icons">
           <div className="item">

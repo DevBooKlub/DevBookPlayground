@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/authContext";
 
 function SendPost({ theme, setTheme }) {
 
-  const { currentUser } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
 
 // const userSendImg = [
 
@@ -24,7 +24,7 @@ function SendPost({ theme, setTheme }) {
   return (
     <div className="sendPost-container backgroundInner box-shadow">
       <div className="user-img-container">
-     <img src={currentUser.profilePic} alt="" />
+     <img src={state.currentUser.userPic} alt="" />
        
       </div>
       <div className="type-post-wraper">

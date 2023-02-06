@@ -12,10 +12,12 @@ import Home from "./components/Home/Home";
 import { AuthContext } from "./context/authContext";
 
 function App() {
-  const {currentUser} = useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
+
+  console.log(`"hello"  ${state.currentUser}`);
 
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
+    if (!state.currentUser) {
       return <Navigate to="/login" />;
     }
     return children;
@@ -29,6 +31,7 @@ function App() {
           <Layout />
         </ProtectedRoute>
       ),
+
       children: [
         {
           path: "/",
@@ -52,4 +55,3 @@ function App() {
 }
 
 export default App;
-

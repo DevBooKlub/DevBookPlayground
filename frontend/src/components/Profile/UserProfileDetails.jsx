@@ -3,27 +3,27 @@ import { AuthContext } from "../../context/authContext";
 import "./Profile.scss";
 
 function UserProfileDetails() {
-  const { currentUser } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
 
   return (
     <>
       <div className="banner-container">
-        <img className="banner-img" src={currentUser.banerImg} alt="" />
+        <img className="banner-img" src={state.currentUser.userPic} alt="" />
         <img
           className="profile-img border"
-          src={currentUser.profilePic}
+          src={state.currentUser.userPic}
           alt=""
         />
       </div>
       <div className="user-details-container">
         <div className="user-name-conatiner">
-          <h3 className="user-name text">{currentUser.name}</h3>
+          <h3 className="user-name text">{state.currentUser.username}</h3>
         </div>
         <div className="user-nickname-conatiner text">
-          <h3 className="user-nickname text">{currentUser.nick}</h3>
+          <h3 className="user-nickname text">{state.currentUser.username}</h3>
         </div>
         <div className="user-quote-conatiner">
-          <h3 className="user-quote text">{currentUser.quote}</h3>
+          <h3 className="user-quote text">{state.currentUser.username}</h3>
         </div>
       </div>
     </>

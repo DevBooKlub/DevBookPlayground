@@ -4,27 +4,29 @@ import userOneImg from "../../assets/img/userImg.jpg";
 import userTwoImg from "../../assets/img/contactImg.jpg";
 import sendImg from "../../assets/img/send.png";
 import sendImgLight from "../../assets/img/sendLight.png";
+import { AuthContext } from "../../context/authContext";
 
 function Comments() {
   // const {currentUser} = useContext(AuthContext)
+  const { state, dipatch } = useContext(AuthContext);
 
-  const comments = [
-    {
-      id: 1,
-      name: "Denis McArdle",
-      desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',",
-      userId: 1,
-      profilePic: [userOneImg],
-    },
+  // const comments = [
+  //   {
+  //     id: 1,
+  //     name: "Denis McArdle",
+  //     desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',",
+  //     userId: 1,
+  //     profilePic: [userOneImg],
+  //   },
 
-    {
-      id: 2,
-      name: "Nigel Nix",
-      desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      userId: 2,
-      profilePic: [userTwoImg],
-    },
-  ];
+  //   {
+  //     id: 2,
+  //     name: "Nigel Nix",
+  //     desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
+  //     userId: 2,
+  //     profilePic: [userTwoImg],
+  //   },
+  // ];
 
   return (
     <div className="comments-container">
@@ -33,16 +35,16 @@ function Comments() {
         <input type="text" placeholder="Write comment" />
         <button className="text backgroundInner border">Send!</button>
       </div>
-      {comments.map((comment) => (
+      
         <div className="comment">
-          <img src={comment.profilePic} alt="" />
+          <img src={state.currentUser.userPic} alt="" />
           <div className="user-info-comment">
-            <span className="text">{comment.name}</span>
-            <p className="text">{comment.desc}</p>
+            <span className="text">{state.currentUser.username}</span>
+            <p className="text">{state.currentUser.username}</p>
           </div>
           <span className="date text">1 hour ago</span>
         </div>
-      ))}
+     
     </div>
   );
 }

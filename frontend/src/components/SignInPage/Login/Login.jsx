@@ -48,7 +48,7 @@ function Login({ open, setOpen }) {
       const response = await axios.post("/api/login", data);
       console.log(response.data);
 
-      dispatch({type: "SETCURRENTUSER", payload:response.data})
+      dispatch({type: "SETCURRENTUSER", payload:response.data.user})
       // setMsg(response.data.msg);
 
       navigate("/");
