@@ -47,7 +47,7 @@ function Login({open, setOpen}) {
           console.log(response.data);
           // setMsg(response.data.msg);
     
-          navigate("/profile");
+          navigate("/");
         } catch (error) {
           console.log(error);
         }
