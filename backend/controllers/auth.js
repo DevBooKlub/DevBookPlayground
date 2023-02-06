@@ -139,7 +139,11 @@ export const Login = async (req, res, next) => {
         .send({
           status: "success",
           message: "Logged In successfully!",
+<<<<<<< HEAD
           user: user,
+=======
+          user: user
+>>>>>>> refs/remotes/origin/main
         });
     } else {
       res.status(401).send({

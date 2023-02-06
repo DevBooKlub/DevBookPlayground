@@ -1,37 +1,37 @@
-import React, {useState} from 'react'
+import React, { useContext, useState } from "react";
 import "../SignInPage.scss";
-import "../Modal/Modal.scss"
-import Modal from "../Modal/Modal"
+import "../Modal/Modal.scss";
+import Modal from "../Modal/Modal";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../../../context/authContext";
 // import { useNavigate } from "react-router-dom";
 
+function Login({ open, setOpen }) {
+  const { state, dispatch } = useContext(AuthContext);
 
 
-function Login({open, setOpen}) {
+
+  // const handleLogin = () => {
+  //   login();
+  // };
 
   const navigate = useNavigate();
-  
-    const openModal = () => {
-        setOpen(true);
-      };
 
-      const [user, setUser] = useState({
-        
-        email: "",
-        password: "",
-    
-      });
+  const openModal = () => {
+    setOpen(true);
+  };
 
-      const handleChange = (e) => {
-        setUser({ ...user, [e.target.name]: e.target.value });
-      };
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-      const handleSubmit = async (event) => {
-        event.preventDefault();
-    
-        const formData = new FormData(event.target);
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
+<<<<<<< HEAD
         
     
         const data =   {
@@ -52,18 +52,44 @@ function Login({open, setOpen}) {
           console.log(error);
         }
       };
+=======
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const data = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+    // const config = {
+    //   data,
+    // };
+    axios.defaults.withCredentials = true;
+    try {
+      const response = await axios.post("/api/login", data);
+      console.log(response.data);
+
+      dispatch({type: "SETCURRENTUSER", payload:response.data.user})
+      // setMsg(response.data.msg);
+
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+>>>>>>> refs/remotes/origin/main
 
   return (
-    
     <div className="sign-form-box backgroundInner ">
-      <form className="form" action=""  method="post" onSubmit={handleSubmit}>
+      <form className="form" action="" method="post" onSubmit={handleSubmit}>
         <input
           className="border "
           type="text"
           placeholder="Login"
           id="email"
           name="email"
-          required={true} 
+          required={true}
           onChange={handleChange}
         />
         <input
@@ -76,6 +102,7 @@ function Login({open, setOpen}) {
           onChange={handleChange}
         />
         <button
+          // onClick={handleLogin}
           className="button-sign-in border text"
           type="submit"
           id="button"
@@ -94,8 +121,7 @@ function Login({open, setOpen}) {
         Create Account
       </button>
     </div>
- 
-  )
+  );
 }
 
-export default Login
+export default Login;
