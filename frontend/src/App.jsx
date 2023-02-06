@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./App.scss";
 import Layout from "./components/Layout/Layout";
 import {
@@ -9,9 +9,10 @@ import {
 } from "react-router-dom";
 import SignInPage from "./components/SignInPage/SignInPage";
 import Home from "./components/Home/Home";
+import { AuthContext } from "./context/authContext";
 
 function App() {
-  const currentUser = true;
+  const {currentUser} = useContext(AuthContext);
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {

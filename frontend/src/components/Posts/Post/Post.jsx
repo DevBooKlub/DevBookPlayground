@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Post.scss";
 import likeImg from "../../../assets/img/like.png";
 import likeImgLight from "../../../assets/img/likeLight.png";
@@ -7,16 +7,19 @@ import commentImgLight from "../../../assets/img/commentLight.png";
 import shareImg from "../../../assets/img/share.png";
 import shareImgLight from "../../../assets/img/shareLight.png";
 import Comments from "../../Comments/Comments";
+import { AuthContext } from "../../../context/authContext";
 
 function Post({ post, theme }) {
   const [commentOpen, setCommentOpen] = useState(false);
+
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="single-post-container backgroundInner box-shadow">
       <div className="single-post-wraper">
         <div className="user">
           <div className="userInfo">
-           {post.profilePic && <img className="user-img" src={post.profilePic} alt="" />}
+           {post.profilePic && <img className="user-img" src={currentUser.profilePic} alt="" />}
             <div className="details">
               <span className="user-name text">{post.name}</span>
               <span className="post-date text">2 min ago</span>

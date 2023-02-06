@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
 import "./Profile.scss";
 
-function UserProfileDetails({ UserProfileDetails }) {
+function UserProfileDetails() {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <>
       <div className="banner-container">
-        <img className="banner-img" src={UserProfileDetails.banerImg} alt="" />
+        <img className="banner-img" src={currentUser.banerImg} alt="" />
         <img
           className="profile-img border"
-          src={UserProfileDetails.profileImg}
+          src={currentUser.profilePic}
           alt=""
         />
       </div>
       <div className="user-details-container">
         <div className="user-name-conatiner">
-          <h3 className="user-name text">{UserProfileDetails.name}</h3>
+          <h3 className="user-name text">{currentUser.name}</h3>
         </div>
         <div className="user-nickname-conatiner text">
-          <h3 className="user-nickname text">{UserProfileDetails.nickname}</h3>
+          <h3 className="user-nickname text">{currentUser.nick}</h3>
         </div>
         <div className="user-quote-conatiner">
-          <h3 className="user-quote text">{UserProfileDetails.quote}</h3>
+          <h3 className="user-quote text">{currentUser.quote}</h3>
         </div>
       </div>
     </>
