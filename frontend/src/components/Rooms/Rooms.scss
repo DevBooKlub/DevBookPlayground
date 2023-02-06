@@ -1,0 +1,51 @@
+.rooms-container {
+  width: 100%;
+  border: 1px solid rgb(3, 3, 3);
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .card-title {
+    width: 80%;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .border-line {
+    width: 80%;
+    border: 1px solid black;
+  }
+
+  .rooms-wraper {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    .room {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.1s ease-in-out;
+      }
+      img {
+        width: 3rem;
+      }
+
+      .room-title {
+        font-size: 1.7rem;
+        text-align: left;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

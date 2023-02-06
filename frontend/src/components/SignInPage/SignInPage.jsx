@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import axios from 'axios';
 import "./SignInPage.scss";
 import SignUpLogoImg from "../../assets/img/logoSignUp.png";
-import SignUpLogoImgBlack from "../../assets/img/logoXlBlack.png"
+import SignUpLogoImgBlack from "../../assets/img/logosmall.png"
 import darkImg from "../../assets/img/darkImg.png";
-import logowhite from "../../assets/img/logo-xxl.png"
+import logowhite from "../../assets/img/logowhite.png"
 import lightImg from "../../assets/img/lightImg.png";
-import Overlay from "./Overlay/Overlay";
 import Modal from "./Modal/Modal";
 import "../../_reset.scss";
 import Login from "./Login/Login"

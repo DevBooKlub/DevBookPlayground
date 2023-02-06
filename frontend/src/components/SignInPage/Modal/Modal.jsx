@@ -1,9 +1,10 @@
 import { useState} from 'react'
 import "./Modal.scss";
 import axios from 'axios';
-
+import logoBlack from "../../../assets/img/logosmall.png";
+import logoModal from "../../../assets/img/logoXlBlack.svg";
 import closeImg from "../../../assets/img/close.png"
-import logoBlack from "../../../assets/img/logoBlack.png"
+
 
 function Modal({setOpen}) {
 
@@ -70,7 +71,7 @@ function Modal({setOpen}) {
                  <input type="password" placeholder="confirm Password" name="confirm" id="confirm"  onChange={handleChange}/>
                  <input type="file" name="userPic" onChange={fileChange} />
                  <p className='policy-text'>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                <button type="submit" className="register-button">Register</button>
+                <button type="submit" className="register-button backgroundInner">Register</button>
                 </form>
 
                 <div className="container-signin">

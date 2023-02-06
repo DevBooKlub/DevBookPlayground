@@ -1,0 +1,22 @@
+.main {
+  width: 90%;
+  // max-width: 1440px;
+  // max-height: 1160px; /// ???? which, check later
+  height: 100vh;
+  // border: 2px solid rgb(203, 13, 13);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  @media (min-width: 2560px) and (max-width: 4559px) {
+    max-width: 1840px;
+  }
+
+  .main-layout-container {
+    display: flex;
+  }
+}
+
+// overflow: hidden;

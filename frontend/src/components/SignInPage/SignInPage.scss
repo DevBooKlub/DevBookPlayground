@@ -4,6 +4,8 @@
 .background {
   display: flex;
   height: 100vh;
+  // background-color: #000000;
+  // background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }
 
 .theme-btn {
@@ -24,13 +26,17 @@
   .left-section-box {
     width: 80%;
 
+    img {
+      width: 25rem;
+    }
+
     .sign-text-container {
       width: 100%;
 
       h2 {
         // color: $fontColor;
-        font-size: 3rem;
-        line-height: 45px;
+        font-size: 3.2rem;
+        font-family: 'Poppins', sans-serif;
       }
     }
   }
@@ -44,7 +50,10 @@
   align-items: center;
 
   .sign-form-box {
-    // background-color: $secondary;
+    //     background-color: #485461;
+    // background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+
+    background-color: $secondary;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,9 +81,8 @@
         background-color: white;
 
         &::placeholder {
-          background-color: rgb(255, 255, 255);
+          // color: $colorPlaceholder;
           font-size: 1.4rem;
-          color: black;
         }
       }
 
@@ -107,7 +115,7 @@
   }
 
   .border-white {
-    // border: 1px solid white;
+    border: 1px solid white;
     width: 256px;
     margin-top: 0.5rem;
   }

@@ -46,19 +46,16 @@
           width: 100%;
           border-bottom: 1px solid $accent;
             height: 2.5rem;
-            background-color: white;
           &::placeholder {
-            color: rgb(0, 0, 0);
-            font-size: 1em;
+            color: $colorPlaceholder;
+            font-size: 1.1em;
             margin-left: 1rem;
-            background-color: white;
           }
         }
 
         .policy-text{
             align-self: center;
-            font-size: 1.2rem;
-            color: black;
+            font-size: 1.4rem;
             
         }
 
@@ -84,11 +81,9 @@
         width: 100%;
 
         
-          
         .sign-in-text{
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             text-align: center;
-            color: black;
         }
       
       }
@@ -111,7 +106,7 @@
     .logo-img-modal{
         top: 1.5rem;
       left: 1.5rem;
-        width: 5rem;
+        width: 7rem;
         position: absolute;
         cursor: pointer;
         

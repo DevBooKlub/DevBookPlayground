@@ -1,11 +1,15 @@
-$primary: #191B27;
-$accent:#bb7000;
-$secondary:#2D3342;
+
+//Dark Mode
+$primary: #191b27;
+$accent: #bb7000;
+$secondary: #2d3342;
 $fontColor: white;
-$colorPlaceholder:rgb(133, 132, 132);
+$colorPlaceholder: rgb(28, 28, 28);
 
 
-$primaryLight:white;
-$accentLight:rgb(3, 3, 3);
-$fontColorLight:black;
-$colorPlaceholderLight:rgb(194, 192, 192)
+//////Light Mode
+$primaryLight: #d9d9d9;
+$secondaryLight: rgba(255, 255, 255, 0.763);
+$accentLight: rgb(3, 3, 3);
+$fontColorLight: black;
+$colorPlaceholderLight: rgb(55, 55, 55);
