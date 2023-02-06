@@ -31,28 +31,28 @@ function Login({ open, setOpen }) {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
         
     
-        const data =   {
-          email: formData.get("email"),
-          password: formData.get("password"),
-        };
-        // const config = {
-        //   data,
-        // };
-        axios.defaults.withCredentials = true;
-        try {
-          const response = await axios.post("/api/login", data);
-          console.log(response.data);
-          // setMsg(response.data.msg);
+      //   const data =   {
+      //     email: formData.get("email"),
+      //     password: formData.get("password"),
+      //   };
+      //   // const config = {
+      //   //   data,
+      //   // };
+      //   axios.defaults.withCredentials = true;
+      //   try {
+      //     const response = await axios.post("/api/login", data);
+      //     console.log(response.data);
+      //     // setMsg(response.data.msg);
     
-          navigate("/");
-        } catch (error) {
-          console.log(error);
-        }
-      };
-=======
+      //     navigate("/");
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // };
+// =======
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -78,7 +78,7 @@ function Login({ open, setOpen }) {
       console.log(error);
     }
   };
->>>>>>> refs/remotes/origin/main
+// >>>>>>> refs/remotes/origin/main
 
   return (
     <div className="sign-form-box backgroundInner ">
