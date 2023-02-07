@@ -6,7 +6,7 @@ import addPhotoIconLight from "../../assets/img/addPhotoLight.png";
 function AddPhotoBtn({ theme, setTheme }) {
   return (
     <>
-      <button className="btn text backgroundInner border">
+      <button type="file" className="btn text backgroundInner border">
         <img
           className="btn-icon"
           src={theme === "dark" ? addPhotoIconLight : addPhotoIcon}

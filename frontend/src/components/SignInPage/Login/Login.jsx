@@ -1,23 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../SignInPage.scss";
 import "../Modal/Modal.scss";
 import Modal from "../Modal/Modal";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/authContext";
 
-
 function Login({ open, setOpen }) {
   const { state, dispatch } = useContext(AuthContext);
-
-
-
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  // };
-
+  const { currentUser } = state;
   const navigate = useNavigate();
-  // const history = useHistory();
+
+  useEffect(() => {
+    console.log(currentUser);
+    if (currentUser) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
 
   const openModal = () => {
     setOpen(true);
@@ -32,28 +31,27 @@ function Login({ open, setOpen }) {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-// <<<<<<< HEAD
-        
-    
-      //   const data =   {
-      //     email: formData.get("email"),
-      //     password: formData.get("password"),
-      //   };
-      //   // const config = {
-      //   //   data,
-      //   // };
-      //   axios.defaults.withCredentials = true;
-      //   try {
-      //     const response = await axios.post("/api/login", data);
-      //     console.log(response.data);
-      //     // setMsg(response.data.msg);
-    
-      //     navigate("/");
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // };
-// =======
+  // <<<<<<< HEAD
+
+  //   const data =   {
+  //     email: formData.get("email"),
+  //     password: formData.get("password"),
+  //   };
+  //   // const config = {
+  //   //   data,
+  //   // };
+  //   axios.defaults.withCredentials = true;
+  //   try {
+  //     const response = await axios.post("/api/login", data);
+  //     console.log(response.data);
+  //     // setMsg(response.data.msg);
+
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // =======
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -71,15 +69,15 @@ function Login({ open, setOpen }) {
       const response = await axios.post("/api/login", data);
       console.log(response.data);
 
-      dispatch({type: "SETCURRENTUSER", payload:response.data.user})
-      // setMsg(response.data.msg);
-      
-     navigate("/home")
+
+      localStorage.setItem("currentUser", JSON.stringify(response.data.user))
+      dispatch({ type: "SETCURRENTUSER", payload: response.data.user });
+
     } catch (error) {
       console.log(error);
     }
   };
-// >>>>>>> refs/remotes/origin/main
+  // >>>>>>> refs/remotes/origin/main
 
   return (
     <div className="sign-form-box backgroundInner ">
@@ -103,7 +101,6 @@ function Login({ open, setOpen }) {
           onChange={handleChange}
         />
         <button
-          
           className="button-sign-in border text"
           type="submit"
           id="button"

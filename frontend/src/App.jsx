@@ -14,10 +14,12 @@ import { AuthContext } from "./context/authContext";
 function App() {
   const { state, dispatch } = useContext(AuthContext);
 
-  console.log(`"hello"  ${state.currentUser}`);
+  // console.log(`"hello"  ${state.currentUser}`);
 
   const ProtectedRoute = ({ children }) => {
-    if (!state.currentUser) {
+    const currentUser = localStorage.getItem("currentUser");
+
+    if (!currentUser) {
       return <Navigate to="/login" />;
     }
     return children;
@@ -30,14 +32,12 @@ function App() {
         <ProtectedRoute>
           <Layout />
         </ProtectedRoute>
-        ),
+      ),
 
       children: [
         {
-          path: "/home",
-          element: (
-              <Home />
-          ),
+          path: "/",
+          element: <Home />,
         },
       ],
     },

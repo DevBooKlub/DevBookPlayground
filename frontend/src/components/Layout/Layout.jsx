@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Layout.scss";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
@@ -8,9 +8,19 @@ import RightSection from "../Main/RightSection/RightSection";
 import { Outlet } from "react-router";
 import "../../_reset.scss";
 import "../../variables/variables.scss";
+import { AuthContext } from "../../context/authContext";
 
 function Layout() {
+
+  const { state, dispatch } = useContext(AuthContext);
   const [theme, setTheme] = useState("dark");
+
+const LS_currentUser = JSON.parse(localStorage.getItem("currentUser"))
+
+if(!state.currentUser && LS_currentUser){
+  dispatch({type:"SETCURRENTUSER", payload:LS_currentUser})
+}
+  
 
   return (
     <div className={theme}>
