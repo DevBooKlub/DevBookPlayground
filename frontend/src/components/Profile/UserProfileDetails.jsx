@@ -1,14 +1,19 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import "./Profile.scss";
+import banerImgLight from "../../assets/img/banerLight.jpg"
+import banerImgDark from "../../assets/img/banerDark.jpg"
 
-function UserProfileDetails() {
+
+// (<img src={theme === "dark" ? banerImgLight : banerImgDark} alt="" />)
+
+function UserProfileDetails({theme, setTheme}) {
   const { state } = useContext(AuthContext);
 
   return (
     <>
       <div className="banner-container">
-        <img className="banner-img" src={state.currentUser.userPic} alt="" />
+        {state.currentUser.userPic && <img className="banner-img" src={state.currentUser.userPic} alt=""/> }
         <img
           className="profile-img border"
           src={state.currentUser.userPic}

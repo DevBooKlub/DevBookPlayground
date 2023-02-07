@@ -6,7 +6,7 @@ import Rooms from "../../Rooms/Rooms";
 function LeftSection({ theme, setTheme }) {
   return (
     <div className="left-section-container">
-      <Profile />
+      <Profile theme={theme} setTheme={setTheme} />
       <Rooms theme={theme} setTheme={setTheme} />
     </div>
   );
