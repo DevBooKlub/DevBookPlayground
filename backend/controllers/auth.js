@@ -139,7 +139,7 @@ export const Login = async (req, res, next) => {
         .send({
           status: "success",
           message: "Logged In successfully!",
-          user: user
+          user: user,
         });
     } else {
       res.status(401).send({
