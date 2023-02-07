@@ -9,7 +9,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
 
-  const [state, dispatch]=useReducer(reducer, {})
+  const [state, dispatch]=useReducer(reducer, {currentUser: ''})
 
   
 

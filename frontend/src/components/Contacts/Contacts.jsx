@@ -26,12 +26,9 @@ function Contacts() {
       <h3 className="card-title">Contacts</h3>
       <div className="border-line"></div>
       <div className="contacts-box">
-        {contactComponent.map((contact) => (
-          <ContactComponent
-            contactComponent={contact}
-            key={contactComponent.id}
-          />
-        ))}
+      
+          <ContactComponent />
+        
       </div>
     </div>
   );

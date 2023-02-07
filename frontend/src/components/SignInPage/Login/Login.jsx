@@ -2,21 +2,22 @@ import React, { useContext, useState } from "react";
 import "../SignInPage.scss";
 import "../Modal/Modal.scss";
 import Modal from "../Modal/Modal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/authContext";
-// import { useNavigate } from "react-router-dom";
+
 
 function Login({ open, setOpen }) {
   const { state, dispatch } = useContext(AuthContext);
 
 
 
-  // const handleLogin = () => {
-  //   login();
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
   // };
 
   const navigate = useNavigate();
+  // const history = useHistory();
 
   const openModal = () => {
     setOpen(true);
@@ -50,8 +51,8 @@ function Login({ open, setOpen }) {
 
       dispatch({type: "SETCURRENTUSER", payload:response.data.user})
       // setMsg(response.data.msg);
-
-      navigate("/");
+      
+     navigate("/home")
     } catch (error) {
       console.log(error);
     }
@@ -79,7 +80,7 @@ function Login({ open, setOpen }) {
           onChange={handleChange}
         />
         <button
-          // onClick={handleLogin}
+          
           className="button-sign-in border text"
           type="submit"
           id="button"
