@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.scss";
 import userImg from "../../assets/img/userImg.jpg";
 import banerImg from "../../assets/img/baner.jpg";
 import UserProfileDetails from "./UserProfileDetails";
+import banerImgLight from "../../assets/img/banerLight.jpg"
+import banerImgDark from "../../assets/img/banerDark.jpg"
+import EditProfile from "./EditProfile/EditProfile";
 
-function Profile() {
+function Profile({theme, setTheme}) {
 
+  const [open, setOpen] = useState(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
 //  const {currentUser} = useContext(AuthContext);
   
   // const userData = [
@@ -30,11 +42,11 @@ function Profile() {
   return (
     <div className="profile-container backgroundInner box-shadow">
       
-        <UserProfileDetails/>
-     
+        <UserProfileDetails theme={theme} setTheme={setTheme}/>
+        {open && <EditProfile open={open} setOpen={setOpen} closeModal={closeModal} />}
       <div className="border-line border"></div>
       <div className="button-profile-conatiner ">
-        <button className="text">Edit profile</button>
+        <button onClick={openModal} className="text">Edit profile</button>
       </div>
     </div>
   );
