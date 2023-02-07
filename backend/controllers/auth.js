@@ -63,7 +63,10 @@ if ( !username || !email || !password || !confirm) {
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
       })
       .send({ message: "create new user", data: newUser });
+      console.log("test2");
   };
+
+  
 
   /* ---------------------------------------------------------------- */
 /*                        EMAIL VERIFICATION                        */

@@ -35,6 +35,8 @@ export const send_verify_email = async (from, to, subject, userID, username) => 
     
         //send email
         await transporter.sendMail({from, to, subject, html:verify_msg});
+
+        console.log('test3');
         
     } catch (error) {
         console.error(error.message);
