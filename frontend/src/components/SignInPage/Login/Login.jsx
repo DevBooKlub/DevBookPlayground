@@ -31,6 +31,7 @@ function Login({ open, setOpen }) {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+<<<<<<< HEAD
   // <<<<<<< HEAD
 
   //   const data =   {
@@ -53,6 +54,9 @@ function Login({ open, setOpen }) {
   // };
   // =======
   const handleSubmit = async (event) => {
+=======
+    const handleSubmit = async (event) => {
+>>>>>>> c39931185b505e5543a5e44db98ffde7cd180bf4
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -77,7 +81,10 @@ function Login({ open, setOpen }) {
       console.log(error);
     }
   };
+<<<<<<< HEAD
   // >>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> c39931185b505e5543a5e44db98ffde7cd180bf4
 
   return (
     <div className="sign-form-box backgroundInner ">

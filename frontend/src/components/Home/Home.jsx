@@ -10,7 +10,6 @@ import { Outlet } from "react-router";
 function Home() {
   const [theme] = useOutletContext();
  
- 
   return (
     <div className="home-section-container">
       <SendPost theme={theme} />
