@@ -50,10 +50,10 @@ function Login({ open, setOpen }) {
       //     navigate("/");
       //   } catch (error) {
       //     console.log(error);
-      //   }
-      // };
-// =======
-  const handleSubmit = async (event) => {
+        //   }
+        // };
+  // =======
+    const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
