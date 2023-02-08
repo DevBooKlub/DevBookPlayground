@@ -5,7 +5,8 @@ import cookieParser from "cookie-parser";
 import passport from 'passport';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import authRouter from './routers/auth.js';
+import authRouter from './routers/authRouter.js';
+import userRouter from './routers/userRouter.js'
 
 const app = express();
 dotenv.config();
@@ -28,6 +29,7 @@ connectToDB();
 
 //Routers
 app.use("/api", authRouter)
+app.use("/api/user", userRouter)
 
 //serve the frontend pix from uploads
 app.use("/uploads", express.static("uploads"));

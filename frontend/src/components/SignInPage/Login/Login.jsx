@@ -16,7 +16,7 @@ function Login({ open, setOpen }) {
     if (currentUser) {
       navigate("/");
     }
-  }, [currentUser, navigate]);
+  }, [currentUser]);
 
   const openModal = () => {
     setOpen(true);
@@ -31,9 +31,7 @@ function Login({ open, setOpen }) {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = async (event) => {
-
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -48,17 +46,14 @@ function Login({ open, setOpen }) {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post("/api/login", data);
-      console.log(response.data);
+      console.log(response.data, "test");
 
-
-      localStorage.setItem("currentUser", JSON.stringify(response.data.user))
+      localStorage.setItem("currentUser", JSON.stringify(response.data.user));
       dispatch({ type: "SETCURRENTUSER", payload: response.data.user });
-
     } catch (error) {
       console.log(error);
     }
   };
-
 
   return (
     <div className="sign-form-box backgroundInner ">
