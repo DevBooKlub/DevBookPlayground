@@ -1,34 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import "./Profile.scss";
-import banerImgLight from "../../assets/img/banerLight.jpg"
-import banerImgDark from "../../assets/img/banerDark.jpg"
-
+import banerImgLight from "../../assets/img/banerLight.jpg";
+import banerImgDark from "../../assets/img/banerDark.jpg";
 
 // (<img src={theme === "dark" ? banerImgLight : banerImgDark} alt="" />)
 
-function UserProfileDetails({theme, setTheme}) {
+function UserProfileDetails({ theme, setTheme }) {
   const { state } = useContext(AuthContext);
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("currentUser"))
+  );
+  useEffect(() => {
+    console.log("first");
+    localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
+    setCurrentUser(state.currentUser);
+  }, [state]);
 
   return (
     <>
       <div className="banner-container">
-        {state.currentUser.userPic && <img className="banner-img" src={state.currentUser.userPic} alt=""/> }
-        <img
-          className="profile-img border"
-          src={state.currentUser.userPic}
-          alt=""
-        />
+        {currentUser.userPic && (
+          <img className="banner-img" src={currentUser.userBanner} alt="" />
+        )}
+        <img className="profile-img border" src={currentUser.userPic} alt="" />
       </div>
       <div className="user-details-container">
         <div className="user-name-conatiner">
-          <h3 className="user-name text">{state.currentUser.username}</h3>
+          <h3 className="user-name text">{currentUser.username}</h3>
         </div>
         <div className="user-nickname-conatiner text">
-          <h3 className="user-nickname text">{state.currentUser.username}</h3>
+          <h3 className="user-nickname text">{currentUser.nickname}</h3>
         </div>
         <div className="user-quote-conatiner">
-          <h3 className="user-quote text">{state.currentUser.username}</h3>
+          <h3 className="user-quote text">{currentUser.quote}</h3>
         </div>
       </div>
     </>

@@ -4,18 +4,18 @@ import { hashedPassword } from '../security/auth.js'
 const UserSchema = mongoose.Schema ({
     username: {
         type: String,
-        required: [true, 'please provide a valid username'],
+        // required: [true, 'please provide a valid username'],
         unique: [true, 'please provide a unique username'],
     },
        email: {
         type: String,
-        required: [true, 'please provide a valid email address'],
+        // required: [true, 'please provide a valid email address'],
         unique: [true, 'please provide a unique email address'],
         minlength: [5, "The password should contain 5 characters at least"],
        },
        password: {
         type: String,
-        required: [true, 'please provide a valid password'],
+        // required: [true, 'please provide a valid password'],
         unique: [true, 'please provide a unique password'],
        },
        confirm: {
@@ -28,6 +28,25 @@ const UserSchema = mongoose.Schema ({
       }
     },
     userPic: String,
+
+    userBanner: {
+      type: String,
+      default: "",
+    },
+    nickname:{
+      type: String,
+      default: "",
+    },
+  
+    quote: {
+      type: String,
+      default: "",
+    },
+
+    friends: { 
+      type: Array,    
+      default: [], 
+     },
 
    
 });
