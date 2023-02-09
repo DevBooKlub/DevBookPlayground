@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./editProfile.scss";
-
 import axios from "axios";
 import logoBlack from "../../../assets/img/logosmall.png";
 import closeIcon from "../../../assets/img/close.png";
