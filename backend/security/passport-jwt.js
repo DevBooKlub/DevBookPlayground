@@ -18,7 +18,7 @@ const configureJwtStrategy = (passport) => {
 
         return User.findById(jwtPayload.userid)
 
-          .select("_id")
+          .select("_id username userPic")
           .then((user) => {
             // attach the user object (_id of the user) to the req object
             return done(null, user);

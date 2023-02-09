@@ -1,5 +1,6 @@
 import express from "express";
 import upload from "../config/multer.js";
+import passport from 'passport';
 import { createPost } from "../controllers/postsController.js";
 import {
   getFeedPosts,
@@ -11,7 +12,9 @@ const router = express.Router();
 
 //route with file
 
-app.post("/posts", upload.single("picture"), createPost);
+
+// router.use(passport.authenticate("jwt", {session: false})),
+router.post("/create", passport.authenticate("jwt", {session: false}),upload.single("picturePath"), createPost);
 
 // Read
 
