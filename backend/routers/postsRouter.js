@@ -19,9 +19,9 @@ router.post("/create", passport.authenticate("jwt", {session: false}),upload.sin
 // Read
 
 router.get("/", getFeedPosts);
-router.get("/:userId/posts", getUserPosts);
+router.get("/:id", getUserPosts);
 
-//update
-router.patch("/:id/like", likePost);
+// //update
+// router.patch("/:id/likes", likePost);
 
 export default router;

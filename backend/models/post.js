@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import User from './user.js';
 
 
 const postSchema = mongoose.Schema(
@@ -29,6 +30,7 @@ const postSchema = mongoose.Schema(
 
 postSchema.pre(/^find/, function(next){
   this.populate({path: "userId"})
+  next()
 })
 const Post = mongoose.model("Post", postSchema);
 

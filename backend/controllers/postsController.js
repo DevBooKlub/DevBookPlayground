@@ -29,6 +29,10 @@ export const createPost = async (req, res) => {
   }
 };
 
+// Get Post by USer ID
+
+
+
 //Read
 
 //Grabing all the posts from everyone
@@ -44,9 +48,15 @@ export const getFeedPosts = async (req, res) => {
 
 export const getUserPosts = async (req, res) => {
   try {
-    const { userId } = req.params;
-    const post = await Post.find({ userId });
-    res.status(200).json(post);
+    const { id } = req.params;
+    console.log(id);
+   const post = await Post.findById( id )
+    console.log(post);
+    res.status(200).json({
+      status:'success', post
+     
+    });
+    
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
