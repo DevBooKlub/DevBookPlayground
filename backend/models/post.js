@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import User from './user.js';
 
 
 const postSchema = mongoose.Schema(
@@ -14,6 +13,7 @@ const postSchema = mongoose.Schema(
       // required: true,
     },
     desc: String,
+    title: String,
     picturePath: String,
     userPic: String,
     likes: {

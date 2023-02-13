@@ -127,7 +127,7 @@ export const Login = async (req, res, next) => {
       const token = jwt.sign(
         { userid: user._id }, //payload
         process.env.JWT_SECRET, //secret key
-        { expiresIn: "5d" } //expiration
+        { expiresIn: "1d" } //expiration
       );
 
       user.password = undefined; //remove password (shouldn't send password to frontend)

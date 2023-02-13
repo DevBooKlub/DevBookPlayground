@@ -7,11 +7,12 @@ export const createPost = async (req, res) => {
   try {
     console.log(req.user);
     const { username, _id, userPic=""} = req.user;
-    const {  desc, picturePath } = req.body;
+    const {  desc, title, picturePath } = req.body;
     // const user = await User.findById(req.user._id);
     const newPost = new Post({
       userId: _id,
       username,
+      title,
       desc,
       userPic,
       picturePath,
@@ -19,7 +20,7 @@ export const createPost = async (req, res) => {
       comments: [],
     });
 
-    // await newPost.save();
+    await newPost.save();
 
     // const post = await Post.find();
 
@@ -46,6 +47,8 @@ export const getFeedPosts = async (req, res) => {
   }
 };
 
+// get a Post by post ID
+
 export const getUserPosts = async (req, res) => {
   try {
     const { id } = req.params;
@@ -54,7 +57,6 @@ export const getUserPosts = async (req, res) => {
     console.log(post);
     res.status(200).json({
       status:'success', post
-     
     });
     
   } catch (error) {
@@ -87,4 +89,36 @@ export const likePost = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
+};
+
+
+//Get posts by user ID
+
+// export const getPostsByUser = async (req, res, next) => {
+//   try {
+//   const usersPosts = await Post.find({ user: req.params.user_id });
+//   res.json(usersPosts);
+// } catch (err) {
+//   console.error(err.message);
+//   res.status(500).send('Server Error');
+// }
+// };
+
+
+export const getPostsByUser = async (req, res) => {
+  const userId = req.user._id;
+  // console.log(userId);
+  await Post.find({ userId })
+    .then(post => {
+      res.status(200).json({
+        status: "success",
+        post: post
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        status: "error",
+        error: err
+      });
+    });
 };

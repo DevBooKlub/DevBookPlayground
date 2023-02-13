@@ -5,7 +5,7 @@ import { createPost } from "../controllers/postsController.js";
 import {
   getFeedPosts,
   getUserPosts,
-  likePost,
+  getPostsByUser,
 } from "../controllers/postsController.js";
 
 
@@ -15,13 +15,16 @@ const router = express.Router();
 //route with file
 
 
-// router.use(passport.authenticate("jwt", {session: false})),
-router.post("/create", passport.authenticate("jwt", {session: false}),upload.single("picturePath"), createPost);
+router.use(passport.authenticate("jwt", {session: false})),
+
+router.post("/create",upload.single("picturePath"), createPost);
 
 // Read
 
 router.get("/", getFeedPosts);
+router.get ("/userId", getPostsByUser)
 router.get("/:id", getUserPosts);
+
 
 // //update
 // router.patch("/:id/likes", likePost);
