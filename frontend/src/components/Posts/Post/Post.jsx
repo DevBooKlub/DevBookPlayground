@@ -8,11 +8,12 @@ import shareImg from "../../../assets/img/share.png";
 import shareImgLight from "../../../assets/img/shareLight.png";
 import Comments from "../../Comments/Comments";
 import { AuthContext } from "../../../context/authContext";
+import axios from 'axios'
 
 function Post({ post, theme }) {
   const [commentOpen, setCommentOpen] = useState(false);
 
-  const { state, dipatch } = useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
 
   return (
     <div className="single-post-container backgroundInner box-shadow">

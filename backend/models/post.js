@@ -1,14 +1,17 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
+import User from './user.js';
+
 
 const postSchema = mongoose.Schema(
   {
     userId: {
-      type: String,
+      type: Schema.Types.ObjectId, 
+      ref: "User",
       required: true,
     },
     username: {
       type: String,
-      required: true,
+      // required: true,
     },
     desc: String,
     picturePath: String,
@@ -25,6 +28,10 @@ const postSchema = mongoose.Schema(
   { timestamps: true }
 );
 
+postSchema.pre(/^find/, function(next){
+  this.populate({path: "userId"})
+  next()
+})
 const Post = mongoose.model("Post", postSchema);
 
 export default Post;
