@@ -5,7 +5,7 @@ import { createPost } from "../controllers/postsController.js";
 import {
   getFeedPosts,
   getUserPosts,
-  likePost,
+  getPostsByUser,
 } from "../controllers/postsController.js";
 
 const router = express.Router();
@@ -20,6 +20,7 @@ router.post("/create", passport.authenticate("jwt", {session: false}),upload.sin
 
 router.get("/", getFeedPosts);
 router.get("/:id", getUserPosts);
+router.get ("/userId", getPostsByUser)
 
 // //update
 // router.patch("/:id/likes", likePost);

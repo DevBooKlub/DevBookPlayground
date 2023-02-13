@@ -29,7 +29,7 @@ connectToDB();
 
 //Routers
 app.use("/api", authRouter);
-app.use("/api/user", userRouter);
+app.use("/api/users", userRouter);
 app.use("/api/posts", postRoutes);
 
 //serve the frontend pix from uploads

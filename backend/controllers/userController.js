@@ -12,6 +12,14 @@ export const getUser = async (req, res) => {
   }
 };
 
+// get all users
+
+export const getAllUsers = async (req, res, next) => {
+  const allUsers = await User.find({});
+
+  res.status(200).json({status: "success",length: allUsers.length, data: allUsers });
+};
+
 /* --------------------------------------------       */
 /*                    User Profile Data               */
 /* --------------------------------------------       */
