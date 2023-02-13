@@ -14,22 +14,25 @@ function Post({ post, theme }) {
   const [commentOpen, setCommentOpen] = useState(false);
 
   const { state, dispatch } = useContext(AuthContext);
+  const userPicURL = "http://localhost:5555"+post.userPic;
+  const postPicURL = "http://localhost:5555"+post.picturePath;
+
 
   return (
     <div className="single-post-container backgroundInner box-shadow">
       <div className="single-post-wraper">
         <div className="user">
           <div className="userInfo">
-           {post.profilePic && <img className="user-img" src={state.currentUser.userPic} alt="" />}
+           {post.userPic && <img className="user-img" src={userPicURL} alt="" />}
             <div className="details">
-              <span className="user-name text">{state.currentUser.username}</span>
+              <span className="user-name text">{post.username}</span>
               <span className="post-date text">2 min ago</span>
             </div>
           </div>
         </div>
         <div className="content">
-          <p className="post-text text">{state.currentUser.username}</p>
-          <img src={state.currentUser.userPic} alt="" />
+          <p className="post-text text">{post.desc}</p>
+          <img src={postPicURL} alt="" />
         </div>
         <div className="info-icons">
           <div className="item">

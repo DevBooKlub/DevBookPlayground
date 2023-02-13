@@ -8,7 +8,7 @@ import CurrentUser from "../components/Navbar/CurrentUser/CurrentUser";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, { currentUser: "" });
+  const [state, dispatch] = useReducer(reducer, { currentUser: "", posts: [] });
 
   // const [currentUser, setCurrentUser] = useState(
   //   JSON.parse(localStorage.getItem("user")) || null

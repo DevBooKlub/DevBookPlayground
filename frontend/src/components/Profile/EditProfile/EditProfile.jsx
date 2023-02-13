@@ -63,7 +63,7 @@ function EditProfile({ setOpen }) {
       };
 
       const response = await axios.patch(
-        `/api/user/${state.currentUser._id}`,
+        `/api/users/${state.currentUser._id}`,
         formData,
         config
       );

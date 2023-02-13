@@ -8,11 +8,12 @@ export default defineConfig({
     host: "localhost",
     port: 8080,
     proxy: {
-      "/uploads": "http://localhost:5555",
+     
       "/api": {
         target: "http://localhost:5555",
         changeOrigin: true,
       },
+      "/uploads": "http://localhost:5555",
     },
   },
 })

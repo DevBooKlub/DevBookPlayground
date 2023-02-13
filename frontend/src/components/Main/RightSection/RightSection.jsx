@@ -7,7 +7,7 @@ function RightSection() {
   return (
     <div className="right-section-container">
       <Contacts />
-      <Jokes />
+      {/* <Jokes /> */}
     </div>
   );
 }

@@ -4,6 +4,8 @@ export const reducer = (state, action) => {
       return { ...state, currentUser: action.payload };
     case "UPDATEUSER":
       return { ...state, currentUser: action.payload };
+    case "LOADPOSTS":
+      return {...state, posts: action.payload}
     default:
       break;
   }
