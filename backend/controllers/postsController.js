@@ -15,7 +15,7 @@ export const createPost = async (req, res) => {
       title,
       desc,
       userPic,
-      picturePath,
+      picturePath:"/uploads/images/" + req.file.filename,
       likes: {},
       comments: [],
     });
