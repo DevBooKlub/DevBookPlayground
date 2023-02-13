@@ -5,6 +5,7 @@ import {
   Login,
   verification,
 } from "../controllers/authController.js";
+
 const router = express.Router();
 
 /** register */

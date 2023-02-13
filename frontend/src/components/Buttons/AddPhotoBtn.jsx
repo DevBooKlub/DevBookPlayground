@@ -3,17 +3,17 @@ import "./SendBtn.scss";
 import addPhotoIcon from "../../assets/img/addPhoto.png";
 import addPhotoIconLight from "../../assets/img/addPhotoLight.png";
 
-function AddPhotoBtn({ theme, setTheme }) {
+function AddPhotoBtn({ theme, setTheme, fileChange }) {
   return (
     <>
-      <button type="file" className="btn text backgroundInner border">
-        <img
+      <input onChange={fileChange} type="file" />
+        {/* <img
           className="btn-icon"
           src={theme === "dark" ? addPhotoIconLight : addPhotoIcon}
           alt=""
-        />
+        /> */}
         Photo!
-      </button>
+      
     </>
   );
 }

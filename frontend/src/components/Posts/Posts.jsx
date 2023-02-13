@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Posts.scss"
 import userOneImg from "../../assets/img/userImg.jpg"
 import userTwoImg from "../../assets/img/contactImg.jpg"
 import Post from './Post/Post'
+import axios from 'axios'
+import { AuthContext } from '../../context/authContext'
 
 function Posts({theme}) {
+
+  const {state, dispatch} = useContext(AuthContext)
+
+  useEffect(()=> {
+    const fetchPost = async () =>{
+      const result= await axios.get(
+        `http://localhost:5555/api/posts/`
+      );
+     dispatch({type:"LOADPOSTS", payload: result.data})
+    }
+
+    if(!state.posts.length)
+      fetchPost();
+
+
+  },[]);
 
   const posts = [
     {
@@ -41,8 +59,8 @@ function Posts({theme}) {
 
   return (
     <div className='post-container'>
-      {posts.map(post =>(
-        <Post theme={theme} post={post} key={post.id}/>
+      {state.posts.map(post =>(
+        <Post theme={theme} post={post} key={post._id}/>
 
       ))
       }

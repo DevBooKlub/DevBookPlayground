@@ -1,7 +1,7 @@
 import React from "react";
 import "./RightSection.scss";
 import Contacts from "../../Contacts/Contacts";
-// import Jokes from "../../Jokes/Jokes";
+import Jokes from "../../Jokes/Jokes";
 
 function RightSection() {
   return (

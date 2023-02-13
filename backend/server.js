@@ -12,7 +12,8 @@ import postRoutes from "./routers/postsRouter.js";
 const app = express();
 dotenv.config();
 const config = {
-  origin: "*",
+  origin: "http://localhost:8080",
+  credentials: true
 };
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,12 +29,14 @@ configureJwtStrategy(passport);
 connectToDB();
 
 //Routers
+//serve the frontend pix from uploads
+app.use("/uploads", express.static("uploads"));
+
 app.use("/api", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/posts", postRoutes);
 
-//serve the frontend pix from uploads
-app.use("/uploads", express.static("uploads"));
+
 
 /** SET PORT NUMBER */
 const port = process.env.PORT || 5555;

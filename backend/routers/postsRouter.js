@@ -8,6 +8,8 @@ import {
   getPostsByUser,
 } from "../controllers/postsController.js";
 
+
+
 const router = express.Router();
 
 //route with file
