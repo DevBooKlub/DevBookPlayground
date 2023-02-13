@@ -6,12 +6,14 @@ import {
   getUserPosts,
   likePost,
 } from "../controllers/postsController.js";
+import passport from "passport"
+
 
 const router = express.Router();
 
 //route with file
 
-app.post("/posts", upload.single("picture"), createPost);
+router.post("/create", createPost);
 
 // Read
 
