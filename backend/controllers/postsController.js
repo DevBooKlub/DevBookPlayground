@@ -106,8 +106,9 @@ export const likePost = async (req, res) => {
 
 
 export const getPostsByUser = async (req, res) => {
-  const userId = req.params.userId;
- await Post.find({ user: userId })
+  const userId = req.user._id;
+  // console.log(userId);
+  await Post.find({ userId })
     .then(post => {
       res.status(200).json({
         status: "success",
