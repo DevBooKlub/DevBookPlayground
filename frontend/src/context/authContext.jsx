@@ -10,28 +10,7 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, { currentUser: "", posts: [] });
 
-  // const [currentUser, setCurrentUser] = useState(
-  //   JSON.parse(localStorage.getItem("user")) || null
-  // );
 
-  // const login = () => {
-  //   //toDO
-
-  //   {
-  //     setCurrentUser(
-  //       {id: 2,
-  //         name: "Nigel Nix",
-  //         profilePic: [userImgTwo],
-  //         banerImg: [banerImg],
-  //         quote: "Great web design without functionality is like a sports car with no engine",
-  //         nick: "@Nigel"}
-  //       );
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   localStorage.setItem("user", JSON.stringify(currentUser));
-  // }, [currentUser]);
 
   return (
     <AuthContext.Provider value={{ state, dispatch }}>
@@ -40,16 +19,4 @@ export const AuthContextProvider = ({ children }) => {
   );
 };
 
-// {id: 2,
-// name: "Nigel Nix",
-// profilePic: [userImgTwo],
-// banerImg: [banerImg],
-// quote: "Great web design without functionality is like a sports car with no engine",
-// nick: "@Nigel"}
 
-// {id: 1,
-// name: "Denis McArdle",
-// profilePic: [userImgOne],
-// banerImg: [banerImg],
-// quote: "Website without visitors is like a ship lost in the horizon.",
-// nick: "@Denis",}

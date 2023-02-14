@@ -22,8 +22,7 @@ import moment from "moment";
 import axios from "axios";
 
 function Post({ post, theme }) {
-  // createdAt
-  // 2023-02-13T14:01:30.738+00:00
+ 
   
 
   const [commentOpen, setCommentOpen] = useState(false);
@@ -32,8 +31,7 @@ function Post({ post, theme }) {
   const userPicURL = "http://localhost:5555" + post.userPic;
   const postPicURL = "http://localhost:5555" + post.picturePath;
 
-  let myDate = post.createdAt;
-
+  
   return (
     <div className="single-post-container backgroundInner box-shadow">
       <div className="single-post-wraper">
