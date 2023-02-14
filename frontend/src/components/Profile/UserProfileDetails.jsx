@@ -4,10 +4,19 @@ import "./Profile.scss";
 import banerImgLight from "../../assets/img/banerLight.jpg";
 import banerImgDark from "../../assets/img/darkBanner.jpg";
 import defaultUserPic from "../../assets/img/pepeUserPic.jpg"
+import { useNavigate } from "react-router-dom";
 
 // (<img src={theme === "dark" ? banerImgLight : banerImgDark} alt="" />)
 
 function UserProfileDetails({ theme, setTheme }) {
+
+  const navigate = useNavigate();
+
+  const handleClick = ()=> {
+    navigate("/profile/id");
+  }
+
+
   const { state } = useContext(AuthContext);
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("currentUser"))
@@ -24,7 +33,7 @@ function UserProfileDetails({ theme, setTheme }) {
          
           <img className="banner-img" src={currentUser.userBanner ? currentUser.userBanner : theme === "dark" ? banerImgDark : banerImgLight} alt="" />
         
-        <img className="profile-img border" src={currentUser.userPic ? currentUser.userPic : defaultUserPic } alt="" />
+        <img onClick={handleClick} className="profile-img border" src={currentUser.userPic ? currentUser.userPic : defaultUserPic } alt="" />
       </div>
       <div className="user-details-container">
         <div className="user-name-conatiner">

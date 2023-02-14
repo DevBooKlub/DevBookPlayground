@@ -15,15 +15,24 @@ import removeFriendDark from "../../../assets/img/deleteUserDark.png";
 import removeFriendLight from "../../../assets/img/deleteUserLight.png";
 import deletePostLight from "../../../assets/img/trashLight.png";
 import deletePostDark from "../../../assets/img/trashDark.png";
+import moment from "moment";
+
+
 
 import axios from "axios";
 
 function Post({ post, theme }) {
+  // createdAt
+  // 2023-02-13T14:01:30.738+00:00
+  
+
   const [commentOpen, setCommentOpen] = useState(false);
 
   const { state, dispatch } = useContext(AuthContext);
   const userPicURL = "http://localhost:5555" + post.userPic;
   const postPicURL = "http://localhost:5555" + post.picturePath;
+
+  let myDate = post.createdAt;
 
   return (
     <div className="single-post-container backgroundInner box-shadow">
@@ -39,7 +48,7 @@ function Post({ post, theme }) {
             )}
             <div className="details">
               <span className="user-name text">{post.username}</span>
-              <span className="post-date text">2 min ago</span>
+              <span className="post-date text">{moment(post.createdAt).fromNow()}</span>
             </div>
           </div>
           <div className="addFriend-icon-container">
@@ -68,9 +77,12 @@ function Post({ post, theme }) {
           </div>
           <div className="item">
             <img
+              className={ state.currentUser._id === post.userId ? "visible" : "hidden"}
+              
               src={theme === "dark" ? deletePostLight : deletePostDark}
               alt=""
             />
+           
             <p className="text">Delete</p>
           </div>
         </div>
