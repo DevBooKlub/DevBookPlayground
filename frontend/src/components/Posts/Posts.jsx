@@ -62,7 +62,7 @@ function Posts({theme}) {
       {state.posts.map(post =>(
         <Post theme={theme} post={post} key={post._id}/>
 
-      ))
+      )).reverse().slice(0,8)
       }
 
 
