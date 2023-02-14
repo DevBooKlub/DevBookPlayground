@@ -1,13 +1,11 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt'
 
- export const hashedPassword = async (text) => {
-    const hashedPassword = await bcrypt.hash(text, 12);
-    return hashedPassword;
-  };
-  
-export const comparePass = async (plainPass, databasePassword) => {
-    const isMatch = await bcrypt.compare(plainPass, databasePassword);
-    return isMatch;
-  };
+export const hashedPassword = async (text) => {
+  const hashedPassword = await bcrypt.hash(text, 12)
+  return hashedPassword
+}
 
-  // export default { hashedPassword, comparePass };
+export const comparePass = async (plainPass, databasePassword) =>
+  bcrypt.compare(plainPass, databasePassword)
+
+// export default { hashedPassword, comparePass };

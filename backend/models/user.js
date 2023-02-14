@@ -1,70 +1,75 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 import { hashedPassword } from '../security/auth.js'
 
-const UserSchema = mongoose.Schema ({
+const UserSchema = mongoose.Schema(
+  {
     username: {
-        type: String,
-        // required: [true, 'please provide a valid username'],
-        unique: [true, 'please provide a unique username'],
+      type: String,
+      // required: [true, 'please provide a valid username'],
+      unique: [true, 'please provide a unique username'],
     },
-       email: {
-        type: String,
-        // required: [true, 'please provide a valid email address'],
-        unique: [true, 'please provide a unique email address'],
-        minlength: [5, "The password should contain 5 characters at least"],
-       },
-       password: {
-        type: String,
-        // required: [true, 'please provide a valid password'],
-        unique: [true, 'please provide a unique password'],
-       },
-       confirm: {
-        type: String,
-        validate: {
+    email: {
+      type: String,
+      // required: [true, 'please provide a valid email address'],
+      unique: [true, 'please provide a unique email address'],
+      minlength: [5, 'The password should contain 5 characters at least'],
+    },
+    password: {
+      type: String,
+      // required: [true, 'please provide a valid password'],
+      unique: [true, 'please provide a unique password'],
+    },
+    confirm: {
+      type: String,
+      validate: {
         validator: function (confirm) {
-             return confirm === this.password
+          return confirm === this.password
         },
-        message: 'Passwords dont match!' 
-      }
+        message: 'Passwords dont match!',
+      },
     },
     userPic: String,
 
     userBanner: {
       type: String,
-      default: "",
+      default: '',
     },
-    nickname:{
+    nickname: {
       type: String,
-      default: "",
+      default: '',
     },
-  
+
     quote: {
       type: String,
-      default: "",
+      default: '',
     },
 
-    friends: { 
-      type: Array,    
-      default: [], 
-     },
-
-   
-});
-
+    friends: {
+      type: Array,
+      default: [],
+    },
+  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+)
 
 //Hash and Salt the password
 
 // if we want to hash the password in the schema , the if condition will allow later change / modify password feature
-UserSchema.pre("save", async function (next) {
-    if (!this.isModified("password")) return next();
-    this.password = await hashedPassword(this.password);
-    next();
-  });
+UserSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next()
+  this.password = await hashedPassword(this.password)
+  next()
+})
 
+UserSchema.virtual('posts', {
+  ref: 'Post',
+  localField: '_id',
+  foreignField: 'userId',
+})
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model('User', UserSchema)
 
-  export default User
-
-
-
+export default User
