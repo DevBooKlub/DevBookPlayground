@@ -5,7 +5,10 @@ import logoBlack from "../../../assets/img/logosmall.png";
 import logoModal from "../../../assets/img/logoXlBlack.svg";
 import closeImg from "../../../assets/img/close.png";
 
+
 function Modal({ setOpen }) {
+
+ 
   const closeModal = () => {
     setOpen(false);
   };
@@ -46,6 +49,7 @@ function Modal({ setOpen }) {
 
       const response = await axios.post("/api/register", formData, config);
       console.log(response.data);
+     
     } catch (error) {
       console.log(error);
     }
@@ -101,13 +105,13 @@ function Modal({ setOpen }) {
               By creating an account you agree to our{" "}
               <a href="#">Terms & Privacy</a>.
             </p>
-            <button type="submit" className="register-button backgroundInner">
+            <button onClick={closeModal} type="submit" className="register-button backgroundInner">
               Register
             </button>
           </form>
 
           <div className="container-signin">
-            <p className="sign-in-text">
+            <p onClick={closeModal} className="sign-in-text">
               Already have an account? <a href="#">Sign in</a>.
             </p>
           </div>
