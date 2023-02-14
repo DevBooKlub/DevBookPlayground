@@ -1,29 +1,59 @@
-.contactComponent-container {
+.contact-wrapper {
   width: 100%;
+  display: flex;
+ 
   min-height: 3.5rem;
   max-height: 3.5rem;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  justify-content: left;
   margin-top: 1rem;
-  opacity: 0.8;
+  justify-content: space-between;
 
-  &:hover {
-    opacity: 1.2;
-    transition: 0.1s ease-in-out;
-    cursor: pointer;
+  .contactComponent-container {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    opacity: 0.9;
+    transition: 300ms;
+   
+
+    &:hover {
+      filter: brightness(1.3);
+      opacity: 1;
+      transition: 0.1s ease-in-out;
+      cursor: pointer;
+    }
+
+    .contact-img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      margin-right: 2rem;
+    }
+
+    .contact-name {
+      letter-spacing: 1px;
+      justify-self: left;
+    }
   }
 
-  .contact-img {
-    
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    margin-right: 2rem;
-  }
+  .contact-icons-container {
+    display: flex;
+    align-items: center;
+    margin-right: 0.3rem;
+   
+  //  min-width: 5.2rem;
+  //  max-width: 5.2rem;
+    justify-content: space-between;
 
-  .contact-name {
-    letter-spacing: 1px;
+    img {
+      width: 1.9rem;
+      height: 1.9rem;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.1s ease-in-out;
+        cursor: pointer;
+      }
+    }
   }
 }

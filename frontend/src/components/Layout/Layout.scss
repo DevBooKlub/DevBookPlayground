@@ -9,6 +9,8 @@
   flex-direction: column;
   overflow: hidden;
   overflow-y: scroll;
+  position: relative;
+  
 
   @media (min-width: 2560px) and (max-width: 4559px) {
     max-width: 1640px;
@@ -16,6 +18,7 @@
 
   .main-layout-container {
     display: flex;
+
   }
 }
 

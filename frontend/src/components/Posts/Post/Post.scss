@@ -14,10 +14,33 @@
   .user {
     display: flex;
     justify-content: space-between;
+    
+
+    .addFriend-icon-container{
+      
+      display: flex;
+      align-items: center;
+      
+
+      img{
+        width: 2.5rem;
+        height: 2.5rem;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: 0.1s ease-in-out;
+          cursor: pointer;
+        }
+      }
+    }
 
     .userInfo {
       display: flex;
       gap: 2rem;
+      // border: 1px solid red;
+      width: 100%;
+
+  
 
       img {
         width: 4rem;
