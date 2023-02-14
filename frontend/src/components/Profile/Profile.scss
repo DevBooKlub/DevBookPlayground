@@ -33,6 +33,7 @@
       bottom: -3rem;
       -webkit-animation: heartbeat 1.5s ease-in-out 2 both;
       animation: heartbeat 1.5s ease-in-out 2 both;
+      cursor: pointer;
     }
 
     @-webkit-keyframes heartbeat {

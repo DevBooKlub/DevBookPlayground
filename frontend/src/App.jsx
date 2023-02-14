@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import SignInPage from "./components/SignInPage/SignInPage";
 import Home from "./components/Home/Home";
+import ProfileLarge from "./components/ProfileLarge/ProfileLarge";
 import { AuthContext } from "./context/authContext";
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/profile/:id",
+          element: <ProfileLarge />,
         },
       ],
     },

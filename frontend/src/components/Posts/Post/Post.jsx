@@ -68,9 +68,12 @@ function Post({ post, theme }) {
           </div>
           <div className="item">
             <img
+              className={ state.currentUser._id === post.userId ? "visible" : "hidden"}
+              
               src={theme === "dark" ? deletePostLight : deletePostDark}
               alt=""
             />
+           
             <p className="text">Delete</p>
           </div>
         </div>

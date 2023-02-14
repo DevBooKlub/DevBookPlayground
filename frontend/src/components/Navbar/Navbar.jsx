@@ -13,8 +13,17 @@ import UserImg from "../../assets/img/userImg.jpg";
 import emailImgLight from "../../assets/img/emailLight.png";
 import messageImgLight from "../../assets/img/messengerLight.png";
 import notificationImgLight from "../../assets/img/notificationLight.png";
+import { useNavigate } from "react-router-dom";
+
 
 function Navbar({ theme, setTheme }) {
+
+  const navigate = useNavigate();
+
+  const handleClick = ()=> {
+    navigate("/");
+  }
+
   return (
     <div className="header">
       <div className="nav-container ">
@@ -24,6 +33,7 @@ function Navbar({ theme, setTheme }) {
               className="logo"
               src={theme === "dark" ? logoNavLight : logoNav}
               alt=""
+              onClick={handleClick}
             />
           </div>
           <div className="nav-searchbar-box">
