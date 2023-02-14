@@ -8,26 +8,45 @@ import shareImg from "../../../assets/img/share.png";
 import shareImgLight from "../../../assets/img/shareLight.png";
 import Comments from "../../Comments/Comments";
 import { AuthContext } from "../../../context/authContext";
-import axios from 'axios'
+import defaultUserPic from "../../../assets/img/pepeUserPic.jpg";
+import addFriendLight from "../../../assets/img/addUserLight.png";
+import addFriendDark from "../../../assets/img/addUserDark.png";
+import removeFriendDark from "../../../assets/img/deleteUserDark.png";
+import removeFriendLight from "../../../assets/img/deleteUserLight.png";
+import deletePostLight from "../../../assets/img/trashLight.png";
+import deletePostDark from "../../../assets/img/trashDark.png";
+
+import axios from "axios";
 
 function Post({ post, theme }) {
   const [commentOpen, setCommentOpen] = useState(false);
 
   const { state, dispatch } = useContext(AuthContext);
-  const userPicURL = "http://localhost:5555"+post.userPic;
-  const postPicURL = "http://localhost:5555"+post.picturePath;
-
+  const userPicURL = "http://localhost:5555" + post.userPic;
+  const postPicURL = "http://localhost:5555" + post.picturePath;
 
   return (
     <div className="single-post-container backgroundInner box-shadow">
       <div className="single-post-wraper">
         <div className="user">
           <div className="userInfo">
-           {post.userPic && <img className="user-img" src={userPicURL} alt="" />}
+            {post.userPic && (
+              <img
+                className="user-img"
+                src={userPicURL ? userPicURL : defaultUserPic}
+                alt=""
+              />
+            )}
             <div className="details">
               <span className="user-name text">{post.username}</span>
               <span className="post-date text">2 min ago</span>
             </div>
+          </div>
+          <div className="addFriend-icon-container">
+            <img
+              src={theme === "dark" ? addFriendLight : addFriendDark}
+              alt=""
+            />
           </div>
         </div>
         <div className="content">
@@ -46,6 +65,13 @@ function Post({ post, theme }) {
           <div className="item">
             <img src={theme === "dark" ? shareImgLight : shareImg} alt="" />
             <p className="text">Share</p>
+          </div>
+          <div className="item">
+            <img
+              src={theme === "dark" ? deletePostLight : deletePostDark}
+              alt=""
+            />
+            <p className="text">Delete</p>
           </div>
         </div>
         {commentOpen && <Comments />}

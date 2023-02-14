@@ -1,33 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Contacts.scss";
 import "./ContactComponent/ContactComponent";
 import ContactComponent from "./ContactComponent/ContactComponent";
 import userOneImg from "../../assets/img/userImg.jpg";
 import userTwoImg from "../../assets/img/contactImg.jpg";
+import Chat from "../Chat/Chat";
 
-function Contacts() {
-  const contactComponent = [
-    { id: 1, profilePic: [userOneImg], name: "Denis McArdle" },
+function Contacts({theme, setTheme}) {
 
-    { id: 2, profilePic: [userTwoImg], name: "Nigel Nix" },
+  const [open, setOpen] = useState(false);
 
-    { id: 3, profilePic: [userOneImg], name: "Iwo Kaczmarzyk" },
+  const openModal = () => {
+    setOpen(true);
+  };
 
-    { id: 4, profilePic: [userTwoImg], name: "Sunny Eyles" },
-    { id: 5, profilePic: [userOneImg], name: "Slavy Spassov" },
-
-    { id: 6, profilePic: [userTwoImg], name: "Lee Davis" },
-    { id: 6, profilePic: [userTwoImg], name: "Lee Davis" },
-    { id: 6, profilePic: [userTwoImg], name: "Lee Davis" },
-  ];
+  const closeModal = () => {
+    setOpen(false);
+  };
+  
 
   return (
     <div className="contacts-container backgroundInner text box-shadow">
       <h3 className="card-title">Contacts</h3>
       <div className="border-line"></div>
       <div className="contacts-box">
-      
-          <ContactComponent />
+      {open && <Chat open={open} setOpen={setOpen} closeModal={closeModal} theme={theme} />}
+          <ContactComponent setOpen={setOpen} open={open} theme={theme} setTheme={setTheme}  />
         
       </div>
     </div>

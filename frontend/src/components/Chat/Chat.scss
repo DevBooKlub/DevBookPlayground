@@ -1,0 +1,23 @@
+.chat-container{
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+    width: 20%;
+    height: 55%;
+    border-radius: 5px;
+    
+
+    img{
+        width: 1.5rem;
+        position: absolute;
+        right: 1.2rem;
+        top: 1.2rem;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: 0.1s ease-in-out;
+        }
+    }
+    
+}

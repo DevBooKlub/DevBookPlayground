@@ -6,14 +6,21 @@ import addPhotoIconLight from "../../assets/img/addPhotoLight.png";
 function AddPhotoBtn({ theme, setTheme, fileChange }) {
   return (
     <>
-      <input onChange={fileChange} type="file" />
-        {/* <img
+      <label className="btn text backgroundInner border" htmlFor="addImg">
+        <img
           className="btn-icon"
           src={theme === "dark" ? addPhotoIconLight : addPhotoIcon}
           alt=""
-        /> */}
+        />
+        <input
+          className="addImg-button"
+          onChange={fileChange}
+          type="file"
+          id="addImg"
+          name="addImg"
+        />
         Photo!
-      
+      </label>
     </>
   );
 }

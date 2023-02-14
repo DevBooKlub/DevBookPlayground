@@ -3,11 +3,11 @@ import "./RightSection.scss";
 import Contacts from "../../Contacts/Contacts";
 import Jokes from "../../Jokes/Jokes";
 
-function RightSection() {
+function RightSection({theme, setTheme}) {
   return (
     <div className="right-section-container">
-      <Contacts />
-      {/* <Jokes /> */}
+      <Contacts theme={theme} setTheme={setTheme} />
+      <Jokes />
     </div>
   );
 }
