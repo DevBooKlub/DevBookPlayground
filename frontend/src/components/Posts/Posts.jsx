@@ -13,7 +13,7 @@ function Posts({theme}) {
   useEffect(()=> {
     const fetchPost = async () =>{
       const result= await axios.get(
-        `http://localhost:5555/api/posts/`
+        `/api/posts/`
       );
      dispatch({type:"LOADPOSTS", payload: result.data})
     }
@@ -59,7 +59,7 @@ function Posts({theme}) {
 
   return (
     <div className='post-container'>
-      {state.posts.map(post =>(
+      {state.posts.slice(0,8).reverse().map(post =>(
         <Post theme={theme} post={post} key={post._id}/>
 
       ))

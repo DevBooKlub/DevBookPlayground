@@ -56,7 +56,7 @@ const handlerSubmit = async (e) => {
             "Content-Type": "multipart/form-data",
           },
         };
-  const response = await axios.post("http://localhost:5555/api/posts/create", formData, config);
+  const response = await axios.post("api/posts/create", formData, config);
   console.log(response.data);
 } catch (error) {
   console.log(error);
