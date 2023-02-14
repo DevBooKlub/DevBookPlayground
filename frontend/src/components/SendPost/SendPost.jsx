@@ -5,22 +5,17 @@ import SendBtn from "../Buttons/SendBtn";
 import AddPhotoBtn from "../Buttons/AddPhotoBtn";
 import { AuthContext } from "../../context/authContext";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 function SendPost({ theme, setTheme }) {
 
-  const { state } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-// const userSendImg = [
+  
 
-//   {
-//     id:1,
-//     profilePic:[userImg]
-//   }
-// ]
+  const { state, dispatch } = useContext(AuthContext);
 
-// {userSendImg.map(userPic => (
-//   <img src={userPic.profilePic} alt="" />
-// ))}
+
 
 const [post, setPost] = useState({
   userId: "",
@@ -58,6 +53,11 @@ const handlerSubmit = async (e) => {
         };
   const response = await axios.post("api/posts/create", formData, config);
   console.log(response.data);
+  if(response.data._id){
+    console.log('res data new post exist')
+    dispatch({type: "ADDNEWPOST", payload: response.data})
+    
+  }
 } catch (error) {
   console.log(error);
 }
