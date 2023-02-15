@@ -28,7 +28,7 @@ function Posts({theme}) {
 
   return (
     <div className='post-container'>
-      {state.posts.slice(0,8).reverse().map(post =>(
+      {state.posts.reverse().slice(0,8).map(post =>(
         <Post theme={theme} post={post} key={post._id}/>
 
       ))
