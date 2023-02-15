@@ -6,15 +6,17 @@ import AddPhotoBtn from "../Buttons/AddPhotoBtn";
 import { AuthContext } from "../../context/authContext";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import Picker from "emoji-picker-react"
+import emojiPickerIcon from "../../assets/img/happy.png"
 
 function SendPost({ theme, setTheme }) {
 
   const navigate = useNavigate();
 
-  
-
+  // const [inputStr, setInputStr] = useState("");
+  // const [showPicker, setShowPicker] = useState(false);
   const { state, dispatch } = useContext(AuthContext);
-
+  const [picturePath, setPicturePath] = useState();
 
 
 const [post, setPost] = useState({
@@ -22,10 +24,28 @@ const [post, setPost] = useState({
   // title: "",
       desc: "",
 });
-const [picturePath, setPicturePath] = useState();
+
+
+
+
 const handleChange = (e) => {
       setPost({ ...post, [e.target.name]: e.target.value });
+     
     };
+
+// const emojiOnClick = (event, emojiObject) => {
+//       setInputStr(prevInput => prevInput + emojiObject.emoji);
+//       setShowPicker(false) 
+  
+//     };
+
+// const doubleFunction = (e) => {
+// handleChange()
+// emojiOnClick( e =>setInputStr(e.target.value))
+// }
+
+
+
 
 
 const fileChange = (e) => {
@@ -77,10 +97,15 @@ const handlerSubmit = async (e) => {
             className="searchbar"
             name="desc"
             type="text"
+            // value={inputStr}
             placeholder="Send your post..."
+            // onChange={doubleFunction}
             onChange={handleChange}
 
           />
+
+          {/* <img className="emoji-icon-btn" src={emojiPickerIcon} alt="" onClick={() => setShowPicker(val => !val)} /> */}
+
         </div>
         <div className="button-box">
           <AddPhotoBtn fileChange={fileChange} theme={theme} setTheme={setTheme} />
