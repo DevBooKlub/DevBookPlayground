@@ -2,33 +2,6 @@ import User from '../models/user.js'
 
 //  Get User by ID
 
-/**
- *  {
-            "_id": "63e5015c38443395a5b03cf9",
-            "userId": {
-                "_id": "63e24c2ed759faf1397031fd",
-                "username": "denis",
-                "email": "denimcardle@gmail.com",
-                "password": "$2b$12$8zluylc7FzQDjNFdSOQkk.kxEBhunL6qdY3C/2KM6Jq.FX8kkit52",
-                "userPic": "/uploads/images/1675775022449_den_snowballed.JPG",
-                "__v": 1,
-                "nickname": "monnface",
-                "quote": "when you're smilng the whole world laughs at you",
-                "userBanner": "/uploads/images/1676295689325_fireworks1.gif",
-                "friends": [],
-                "id": "63e24c2ed759faf1397031fd"
-            },
-            "username": "denis",
-            "desc": "denny wake up",
-            "userPic": "/uploads/images/1675775022449_den_snowballed.JPG",
-            "likes": {},
-            "comments": [],
-            "createdAt": "2023-02-09T14:21:16.064Z",
-            "updatedAt": "2023-02-09T14:21:16.064Z",
-            "__v": 0
-        },
- */
-
 export const getUser = async (req, res) => {
   try {
     const { id } = req.params
