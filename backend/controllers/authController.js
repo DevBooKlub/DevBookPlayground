@@ -122,7 +122,7 @@ export const Login = async (req, res, next) => {
       const token = jwt.sign(
         { userid: user._id }, //payload
         process.env.JWT_SECRET, //secret key
-        { expiresIn: '1d' } //expiration
+        { expiresIn: '30d' } //expiration
       )
 
       user.password = undefined //remove password (shouldn't send password to frontend)
@@ -131,7 +131,6 @@ export const Login = async (req, res, next) => {
         .status(200)
         .cookie('access_token', token, {
           httpOnly: true,
-          sameSite: false,
           expires: new Date(Date.now() + 3600_000 * 24 * 30),
         })
         .send({
@@ -147,4 +146,11 @@ export const Login = async (req, res, next) => {
   } catch (error) {
     next(error)
   }
+}
+
+export const logout = (req, res, next) => {
+  res.status(204).clearCookie('access_token', { httpOnly: true }).json({
+    status: 'success',
+    data: null,
+  })
 }
