@@ -12,7 +12,6 @@ function ProfileLargeComponent({ theme }) {
     JSON.parse(localStorage.getItem('currentUser'))
   )
   useEffect(() => {
-    console.log('first')
     localStorage.setItem('currentUser', JSON.stringify(state.currentUser))
     setCurrentUser(state.currentUser)
   }, [state])

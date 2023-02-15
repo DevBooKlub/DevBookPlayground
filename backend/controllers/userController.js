@@ -48,11 +48,13 @@ export const editProfile = async (req, res, next) => {
       quote,
       nickname,
       friends,
-      userBanner: '/uploads/images/' + (req?.file?.filename ? req.file.filename: ""),
-     
+      userBanner:
+        '/uploads/images/' + (req?.file?.filename ? req.file.filename : ''),
     },
-    { new: true , runValidators: true}
-  )
+    { new: true, runValidators: true }
+  ).populate({
+    path: 'friends',
+  })
 
   // newData.update();
   // newData.save();
