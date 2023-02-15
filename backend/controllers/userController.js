@@ -37,7 +37,7 @@ export const getAllUsers = async (req, res, next) => {
 
 export const editProfile = async (req, res, next) => {
   //destructure frontend request
-  const { username, nickname, quote } = req.body
+  const { username, nickname, quote, friends } = req.body
   console.log(req.body)
   console.log(req.params.id, 'test')
   //create the new data
@@ -47,15 +47,16 @@ export const editProfile = async (req, res, next) => {
       username,
       quote,
       nickname,
-      userBanner: '/uploads/images/' + req.file.filename,
-      // userPic: "/uploads/images/" + req.file.filename,
+      friends,
+      userBanner: '/uploads/images/' + (req?.file?.filename ? req.file.filename: ""),
+     
     },
-    { new: true }
+    { new: true , runValidators: true}
   )
 
   // newData.update();
   // newData.save();
-  res.send({ message: 'create new Profile Data', data: newData })
+  res.send({ message: 'success', data: newData })
 }
 
 export const getUserFriends = async (req, res) => {
