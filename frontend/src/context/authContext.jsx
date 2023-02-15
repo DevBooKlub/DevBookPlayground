@@ -9,15 +9,7 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
-    _id: '',
-    username: '',
-    email: '',
-    userPic: '',
-    nickname: '',
-    quote: '',
-    userBanner: '',
-    friends: [],
-    id: '',
+    currentUser: null,
     posts: [],
   })
 

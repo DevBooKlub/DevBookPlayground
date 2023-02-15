@@ -1,5 +1,5 @@
 import User from '../models/user.js'
-
+import createError from 'http-errors'
 //  Get User by ID
 
 export const getUser = async (req, res) => {
@@ -37,26 +37,38 @@ export const getAllUsers = async (req, res, next) => {
 
 export const editProfile = async (req, res, next) => {
   //destructure frontend request
-  const { username, nickname, quote, friends } = req.body
-  console.log(req.body)
-  console.log(req.params.id, 'test')
+  const { id } = req.params
+  const { username, nickname, quote, friends, email } = req.body
   //create the new data
-  const newData = await User.findByIdAndUpdate(
-    req.params.id,
-    {
-      username,
-      quote,
-      nickname,
-      friends,
-      userBanner: '/uploads/images/' + (req?.file?.filename ? req.file.filename: ""),
-     
-    },
-    { new: true , runValidators: true}
+  if (!id) {
+    return next(createError(401, 'Invalid user ID.'))
+  }
+
+  const foundUser = await User.findById(id).orFail(
+    createError(401, 'Invalid user ID.')
   )
 
-  // newData.update();
-  // newData.save();
-  res.send({ message: 'success', data: newData })
+  if (foundUser._id.toString() !== req.user._id.toString()) {
+    return next(
+      createError(403, "ID doesn't belong to the current logged in user.")
+    )
+  }
+  // username, nickname, quote, friends
+  if (typeof username === 'string') foundUser.username = username
+  if (typeof email === 'string') foundUser.email = email
+  if (typeof nickname === 'string') foundUser.nickname = nickname
+  if (typeof quote === 'string') foundUser.quote = quote
+  if (Array.isArray(friends)) foundUser.friends = friends
+  if (req.file && req.file.filename)
+    foundUser.userBanner = '/uploads/images/'.concat(req.file.filename)
+  await foundUser.populate({ path: 'friends' })
+  await foundUser.validate()
+  const data = await foundUser.save()
+
+  res.status(200).json({
+    status: 'success',
+    data,
+  })
 }
 
 export const getUserFriends = async (req, res) => {
