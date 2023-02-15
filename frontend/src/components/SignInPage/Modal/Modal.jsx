@@ -30,6 +30,7 @@ function Modal({ setOpen }) {
     setUserPic(e.target.files[0]);
   };
   const handleSubmit = async (e) => {
+    console.log('test submit')
     e.preventDefault();
 
     const formData = new FormData();
@@ -105,7 +106,7 @@ function Modal({ setOpen }) {
               By creating an account you agree to our{" "}
               <a href="#">Terms & Privacy</a>.
             </p>
-            <button onClick={closeModal} type="submit" className="register-button backgroundInner">
+            <button  type="submit" className="register-button backgroundInner">
               Register
             </button>
           </form>

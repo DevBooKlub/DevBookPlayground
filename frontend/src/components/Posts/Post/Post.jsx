@@ -21,13 +21,35 @@ import moment from "moment";
 
 import axios from "axios";
 
-function Post({ post, theme }) {
+function Post({id, post, theme, username }) {
+
+  const {state, dispatch} = useContext(AuthContext)
+
  
-  
+   const handleAddRemoveFriend = async() => {
+    
+    //Cant add yourself to friend list
+    if(state.currentUser._id === id){
+      return
+    }
+//
+    const checkFriend = state.currentUser.friends.find(friend => friend === id);
+    const friends = checkFriend ? state.currentUser.friends.filter(friend => friend !== id) : [...state.currentUser.friends, id];
+    const newUser = await axios({method : "patch", url: `/api/users/${state.currentUser._id}`, headers: {"Content-Type" : "application/json"}, data:{friends}} )
+    const payload = newUser.data.data;
+    dispatch({type: "UPDATEUSER", payload});
+   }
+
+
+
+
+
+   
+   
 
   const [commentOpen, setCommentOpen] = useState(false);
 
-  const { state, dispatch } = useContext(AuthContext);
+  
   const userPicURL = "http://localhost:5555" + post.userPic;
   const postPicURL = "http://localhost:5555" + post.picturePath;
 
@@ -49,8 +71,11 @@ function Post({ post, theme }) {
               <span className="post-date text">{moment(post.createdAt).fromNow()}</span>
             </div>
           </div>
-          <div className="addFriend-icon-container">
+          <div
+           onClick={handleAddRemoveFriend}
+           className="addFriend-icon-container">
             <img
+             
               src={theme === "dark" ? addFriendLight : addFriendDark}
               alt=""
             />

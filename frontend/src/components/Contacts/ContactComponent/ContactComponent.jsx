@@ -30,8 +30,13 @@ function ContactComponent({theme, setTheme, open, setOpen}) {
   return (
     <div className="contact-wrapper">
     <div onClick={handleClick} className="contactComponent-container">
-      <img className="contact-img" src={state.currentUser.userPic} alt="" />
-      <h2 className="contact-name text">{state.currentUser.username}</h2>
+      {state.currentUser.friends.map(friend=>(
+        <>
+         <img className="contact-img" src={"http://localhost:5555"+friend.userPic} alt="" />
+      <h2 className="contact-name text">{friend.username}</h2>
+      </>
+      ))}
+     
      
     </div>
     <div className="contact-icons-container">

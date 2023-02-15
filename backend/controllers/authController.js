@@ -40,13 +40,13 @@ export const Register = async (req, res, next) => {
     newUser.password = undefined
   }
 
-  send_verify_email(
-    'denis.mcardle@dci.education',
-    newUser.email,
-    'Welcome to our App!',
-    newUser._id,
-    newUser.username
-  )
+  // send_verify_email(
+  //   'denis.mcardle@dci.education',
+  //   newUser.email,
+  //   'Welcome to our App!',
+  //   newUser._id,
+  //   newUser.username
+  // )
 
   console.log('test')
   //send response
@@ -113,7 +113,7 @@ export const Login = async (req, res, next) => {
     }
 
     //1. find a user with given email
-    const user = await User.findOne({ email }).select('+password')
+    const user = await User.findOne({ email }).select('+password').populate("friends")
 
     //2. compare given password with hashed value
     if (user && (await comparePass(password, user.password))) {

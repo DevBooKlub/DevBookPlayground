@@ -5,10 +5,10 @@ export const reducer = (state, action) => {
     case "UPDATEUSER":
       return { ...state, currentUser: action.payload };
     case "LOADPOSTS":
-      return {...state, posts: action.payload};
+      return { ...state, posts: action.payload };
 
-      case "ADDNEWPOST":
-      return {...state, posts:[action.payload, ...state.posts]}
+    case "ADDNEWPOST":
+      return { ...state, posts: [action.payload, ...state.posts] };
 
     default:
       break;

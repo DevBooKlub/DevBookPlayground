@@ -1,5 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose, { SchemaType } from 'mongoose'
 import { hashedPassword } from '../security/auth.js'
+import {Schema} from "mongoose";
 
 const UserSchema = mongoose.Schema(
   {
@@ -44,10 +45,11 @@ const UserSchema = mongoose.Schema(
       default: '',
     },
 
-    friends: {
-      type: Array,
-      default: [],
-    },
+    friends:[ 
+      {type: Schema.Types.ObjectId, ref:"User"}
+      // type: Array,
+      // default: [],
+  ],
   },
   {
     toJSON: { virtuals: true },

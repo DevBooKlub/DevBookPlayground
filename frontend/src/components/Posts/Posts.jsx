@@ -29,7 +29,7 @@ function Posts({theme}) {
   return (
     <div className='post-container'>
       {state.posts.reverse().slice(0,8).map(post =>(
-        <Post theme={theme} post={post} key={post._id}/>
+        <Post theme={theme} post={post} key={post._id} id={post.userId} name={post.username}/>
 
       ))
       }
