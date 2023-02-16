@@ -24,8 +24,10 @@ function Contacts({theme, setTheme}) {
       <h3 className="card-title">Contacts</h3>
       <div className="border-line"></div>
       <div className="contacts-box">
+
+      <ContactComponent setOpen={setOpen} open={open} theme={theme} setTheme={setTheme}  />
       {open && <Chat open={open} setOpen={setOpen} closeModal={closeModal} theme={theme} />}
-          <ContactComponent setOpen={setOpen} open={open} theme={theme} setTheme={setTheme}  />
+          
         
       </div>
     </div>
