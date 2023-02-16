@@ -13,6 +13,8 @@ import Login from "./Login/Login"
 function SignInPage() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+ 
+
 
   const openModal = () => {
     setOpen(true);
@@ -21,6 +23,7 @@ function SignInPage() {
   const closeModal = () => {
     setOpen(false);
   };
+
 
   
 
@@ -37,7 +40,7 @@ function SignInPage() {
           />
         )}
 
-        {open && <Modal setOpen={setOpen} closeModal={closeModal} />}
+        {open && <Modal open={open} setOpen={setOpen} closeModal={closeModal} />}
         <div className="sign-section-left">
           <div className="left-section-box">
             <img className="logo-img-xl" src={theme === "dark" ? logowhite : SignUpLogoImgBlack} alt="" />

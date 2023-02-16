@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Modal.scss";
 import axios from "axios";
 import logoBlack from "../../../assets/img/logosmall.png";
 import logoModal from "../../../assets/img/logoXlBlack.svg";
 import closeImg from "../../../assets/img/close.png";
+import { AuthContext } from "../../../context/authContext";
 
 
 function Modal({ setOpen }) {
-
  
   const closeModal = () => {
     setOpen(false);
   };
+
+
 
   const [user, setUser] = useState({
     username: "",
@@ -50,6 +52,8 @@ function Modal({ setOpen }) {
 
       const response = await axios.post("/api/register", formData, config);
       console.log(response.data);
+      alert('Successfully Registered.')
+      setOpen(false);
      
     } catch (error) {
       console.log(error);

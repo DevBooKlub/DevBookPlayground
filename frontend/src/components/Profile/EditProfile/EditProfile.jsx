@@ -8,6 +8,10 @@ import { AuthContext } from "../../../context/authContext";
 function EditProfile({ setOpen }) {
   const { state, dispatch } = useContext(AuthContext);
   console.log(state);
+
+
+
+
   const closeModal = () => {
     setOpen(false);
   };
@@ -68,11 +72,15 @@ function EditProfile({ setOpen }) {
         config
       );
       dispatch({ type: "UPDATEUSER", payload: response.data.data });
+      
       console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   };
+
+
+  
 
   return (
     <div className="modal">

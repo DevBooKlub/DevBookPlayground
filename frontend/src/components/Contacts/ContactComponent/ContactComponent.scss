@@ -40,9 +40,14 @@
     align-items: center;
     margin-right: 0.3rem;
    
-  //  min-width: 5.2rem;
-  //  max-width: 5.2rem;
+   min-width: 5rem;
+   max-width: 5rem;
     justify-content: space-between;
+
+.removeFriend-icon{
+  width: 2rem;
+  height: 2rem;
+}
 
     img {
       width: 1.9rem;
