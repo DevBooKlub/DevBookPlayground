@@ -39,6 +39,7 @@ function EditProfile({ setOpen }) {
   const fileChangeBanner = (e) => {
     console.log(e.target.files);
 
+    console.log(e.target.name)
     //! 2- target the files[0]
     setUserBanner(e.target.files[0]);
     
@@ -123,7 +124,7 @@ function EditProfile({ setOpen }) {
               name="userPic"
               id="userPic"
               // onChange={handleChange}
-              // onChange={fileChangePic}
+              onChange={fileChangeBanner}
             />
 
             <label for="userBanner">
