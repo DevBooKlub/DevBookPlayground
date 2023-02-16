@@ -1,5 +1,6 @@
 .current-user-container {
   display: flex;
+  min-width:8rem;
   border: 1px solid black;
   border-radius: 20px;
   justify-items: center;
@@ -7,6 +8,7 @@
   padding: 0.4rem;
   margin-right: 1rem;
   cursor: pointer;
+  
 
   &:hover {
     transform: scale(1.1);

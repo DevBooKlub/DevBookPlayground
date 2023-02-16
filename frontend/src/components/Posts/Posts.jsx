@@ -31,6 +31,7 @@ function Posts({ theme }) {
             key={post._id}
             id={post.userId._id}
             name={post.username}
+            author={post.userId._id}
           />
         ))}
       {/* .reverse().slice(0,8) */}
