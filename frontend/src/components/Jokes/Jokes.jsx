@@ -26,7 +26,7 @@ function Jokes() {
         <div className="button-container">
           <button
             onClick={fetchJokes}
-            className="joke-btn text backgroundInner border"
+            className="joke-btn text backgroundInner border button-TextInput"
           >
             Get Joke!
           </button>

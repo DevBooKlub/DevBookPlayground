@@ -3,9 +3,18 @@
 
 .background {
   display: flex;
+  
   height: 100vh;
   // background-color: #000000;
   // background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+  position: relative;
+
+  // .wave{
+  //   position: absolute;
+  //   rotate: 180deg;
+  //   z-index: 1;
+    
+  // }
 }
 
 .theme-btn {
@@ -35,8 +44,9 @@
 
       h2 {
         // color: $fontColor;
-        font-size: 3.2rem;
+        font-size: clamp(1.25rem, 0.75rem + 2.2222vw, 3.75rem);
         font-family: 'Poppins', sans-serif;
+        mix-blend-mode: difference;
       }
     }
   }
@@ -110,6 +120,7 @@
     p {
       font-size: 1.3rem;
       text-decoration: none;
+      
       // color: $fontColor;
     }
   }

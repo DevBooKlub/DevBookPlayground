@@ -5,6 +5,7 @@ import ContactComponent from "./ContactComponent/ContactComponent";
 import userOneImg from "../../assets/img/userImg.jpg";
 import userTwoImg from "../../assets/img/contactImg.jpg";
 import Chat from "../Chat/Chat";
+
 import { AuthContext } from "../../context/authContext";
 
 function Contacts({theme, setTheme}) {

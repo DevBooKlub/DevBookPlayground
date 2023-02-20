@@ -6,6 +6,7 @@ import UserProfileDetails from "./UserProfileDetails";
 import banerImgLight from "../../assets/img/banerLight.jpg"
 import banerImgDark from "../../assets/img/banerDark.jpg"
 import EditProfile from "./EditProfile/EditProfile";
+import blop from "../../assets/img/blob.svg"
 
 function Profile({theme, setTheme}) {
 
@@ -41,12 +42,12 @@ function Profile({theme, setTheme}) {
 
   return (
     <div className="profile-container backgroundInner box-shadow">
-      
+      {/* <img className="blop" src={blop} alt="" /> */}
         <UserProfileDetails theme={theme} setTheme={setTheme}/>
         {open && <EditProfile open={open} setOpen={setOpen} closeModal={closeModal} />}
       <div className="border-line border"></div>
       <div className="button-profile-conatiner ">
-        <button onClick={openModal} className="text">Edit profile</button>
+        <button  onClick={openModal} className="text button-TextInput">Edit profile</button>
       </div>
     </div>
   );

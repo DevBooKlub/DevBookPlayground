@@ -5,12 +5,14 @@ import LeftSection from '../Main/LeftSection/LeftSection'
 import RightSection from '../Main/RightSection/RightSection'
 import Post from '../Posts/Posts'
 import SendPost from '../SendPost/SendPost'
+import Swiper from '../Swiper/Swiper'
 
 function Home() {
   const [theme] = useOutletContext()
 
   return (
     <div className='home-section-container'>
+      <Swiper theme={theme}/>
       <SendPost theme={theme} />
       <Post theme={theme} />
     </div>

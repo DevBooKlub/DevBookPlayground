@@ -14,12 +14,12 @@ import jokesImgLight from "../../assets/img/jokingLight.png";
 function Rooms({ theme, setTheme }) {
   return (
     <div className="rooms-container backgroundInner box-shadow">
-      <h3 className="card-title text">Interests</h3>
+      <h3 className="card-title text">Communities</h3>
       <div className="border-line "></div>
       <div className="rooms-wraper">
         <div className="room">
-          <img src={theme === "dark" ? frontendImgLight : frontendImg} alt="" />
-          <h3 className="room-title text">#Frontend</h3>
+          <img  src={theme === "dark" ? frontendImgLight : frontendImg} alt="" />
+          <h3 className="room-title text ">#Frontend</h3>
         </div>
         <div className="room">
           <img src={theme === "dark" ? backendImgLight : backendImg} alt="" />

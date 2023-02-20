@@ -6,7 +6,7 @@ import sendImgLight from "../../assets/img/sendLight.png";
 function SendBtn({ theme, setTheme,  handlerSubmit }) {
   return (
     <>
-      <button onClick={handlerSubmit} type="submit" className="btn text backgroundInner border">
+      <button onClick={handlerSubmit} type="submit" className="btn text box-shadow  border button-TextInput">
         {" "}
         <img
           className="btn-icon"

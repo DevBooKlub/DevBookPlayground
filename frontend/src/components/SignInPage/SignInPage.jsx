@@ -9,6 +9,7 @@ import lightImg from "../../assets/img/lightImg.png";
 import Modal from "./Modal/Modal";
 import "../../_reset.scss";
 import Login from "./Login/Login"
+import wave from "../../assets/img/wave.svg"
 
 function SignInPage() {
   const [open, setOpen] = useState(false);
@@ -30,6 +31,8 @@ function SignInPage() {
   return (
     <div className={theme}>
       <div className="background main-box">
+        {/* <img className="wave" src={wave} alt="" /> */}
+
         {theme && (
           <img
             onClick={() => {

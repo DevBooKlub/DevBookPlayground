@@ -17,7 +17,7 @@ function CurrentUser() {
   // ];
 
   return (
-    <div className="current-user-container box-shadow  backgroundInner">
+    <div className="current-user-container box-shadow button-TextInput borderCurrentUser backgroundInner">
       {/* {currentUser.map((user) => ( */}
         <CurrentUserComponent  />
       {/* ))} */}

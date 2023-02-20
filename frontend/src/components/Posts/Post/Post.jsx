@@ -9,17 +9,30 @@ import shareImgLight from "../../../assets/img/shareLight.png";
 import Comments from "../../Comments/Comments";
 import { AuthContext } from "../../../context/authContext";
 import defaultUserPic from "../../../assets/img/pepeUserPic.jpg";
-import addFriendLight from "../../../assets/img/addUserLight.png";
-import addFriendDark from "../../../assets/img/addUserDark.png";
-import removeFriendDark from "../../../assets/img/deleteUserDark.png";
-import removeFriendLight from "../../../assets/img/deleteUserLight.png";
+import addFriendLight from "../../../assets/img/addContact.png";
+import addFriendDark from "../../../assets/img/addConntactLight.png";
+import removeFriendDark from "../../../assets/img/removeContactLight.png";
+import removeFriendLight from "../../../assets/img/removeContact.png";
 import deletePostLight from "../../../assets/img/trashLight.png";
 import deletePostDark from "../../../assets/img/trashDark.png";
+import veryfiedIcon from "../../../assets/img/verified.png";
+
 import moment from "moment";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function Post({ id, post, theme, username, author }) {
+function Post({ id, post, theme, username, author, nickname }) {
+  const navigate = useNavigate();
+
+
+
+  const handleClick = () => {
+    navigate('/profile/id')
+  }
+
+
+
   const { state, dispatch } = useContext(AuthContext);
 
   const [isFriend, setIsFriend] = useState(true);
@@ -73,21 +86,28 @@ function Post({ id, post, theme, username, author }) {
           <div className="userInfo">
             {post.userPic && (
               <img
-                className="user-img"
+                className="user-img borderImg"
+                onClick={handleClick}
                 src={userPicURL ? userPicURL : defaultUserPic}
                 alt=""
               />
             )}
             <div className="details">
-              <span className="user-name text">{post.username}</span>
-              <span className="post-date text">
+              { <div className="nickname-container"> <span className="nickname textPostNickname">{`${"@"}${"Nickname here"}`}</span> <img src={veryfiedIcon} alt="" /></div>}
+              <div className="nameDate-container">
+              <span className="user-name text ">{post.username}</span>
+              <ul>
+              <li className="post-date text textPostDate">
+              
                 {moment(post.createdAt).fromNow()}
-              </span>
+              </li>
+              </ul>
+              </div>
             </div>
           </div>
           <div
             onClick={handleAddRemoveFriend}
-            className="addFriend-icon-container"
+            className="addFriend-icon-container "
           >
             {!isMyFriend(author, state.currentUser.friends) ? (
               <img

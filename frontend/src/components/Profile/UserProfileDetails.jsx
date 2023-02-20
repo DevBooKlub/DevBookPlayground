@@ -5,6 +5,7 @@ import banerImgLight from '../../assets/img/banerLight.jpg'
 import banerImgDark from '../../assets/img/darkBanner.jpg'
 import defaultUserPic from '../../assets/img/pepeUserPic.jpg'
 import { useNavigate } from 'react-router-dom'
+import starImg from "../../assets/img/star.png"
 
 // (<img src={theme === "dark" ? banerImgLight : banerImgDark} alt="" />)
 
@@ -41,7 +42,7 @@ function UserProfileDetails({ theme, setTheme }) {
 
         <img
           onClick={handleClick}
-          className='profile-img border'
+          className='profile-img borderImg box-shadow'
           src={currentUser.userPic ? currentUser.userPic : defaultUserPic}
           alt=''
         />
@@ -51,18 +52,20 @@ function UserProfileDetails({ theme, setTheme }) {
           <h3 className='user-name text'>{currentUser.username}</h3>
         </div>
         <div className='user-nickname-conatiner text'>
-          <h3 className='user-nickname text'>
+          <h3 className='user-nickname textPostNickname'>
             {currentUser.nickname ? (
-              currentUser.nickname
+             `${"@"}${currentUser.nickname}`
             ) : (
               <h3>Edit your Nickname</h3>
             )}
           </h3>
         </div>
         <div className='user-quote-conatiner'>
-          <h3 className='user-quote text'>
+        
+          <h3 className='user-quote text '>
             {currentUser.quote ? currentUser.quote : <h3>Edit your Quote</h3>}
           </h3>
+          
         </div>
       </div>
     </>

@@ -23,7 +23,7 @@ function Posts({ theme }) {
     <div className='post-container'>
       {state.posts
         .reverse()
-        .slice(0, 8)
+        .slice(0, 10)
         .map((post) => (
           <Post
             theme={theme}
@@ -32,6 +32,7 @@ function Posts({ theme }) {
             id={post.userId._id}
             name={post.username}
             author={post.userId._id}
+            nickname={post.nickname}
           />
         ))}
       {/* .reverse().slice(0,8) */}
