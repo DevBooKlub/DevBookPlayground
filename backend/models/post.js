@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 
-const postSchema = mongoose.Schema(
+const postSchema = new mongoose.Schema(
   {
     userId: {
       type: Schema.Types.ObjectId, 
