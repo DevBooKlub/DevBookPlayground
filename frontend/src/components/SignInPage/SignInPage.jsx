@@ -9,10 +9,13 @@ import lightImg from "../../assets/img/lightImg.png";
 import Modal from "./Modal/Modal";
 import "../../_reset.scss";
 import Login from "./Login/Login"
+import wave from "../../assets/img/wave.svg"
 
 function SignInPage() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+ 
+
 
   const openModal = () => {
     setOpen(true);
@@ -22,11 +25,14 @@ function SignInPage() {
     setOpen(false);
   };
 
+
   
 
   return (
     <div className={theme}>
       <div className="background main-box">
+        {/* <img className="wave" src={wave} alt="" /> */}
+
         {theme && (
           <img
             onClick={() => {
@@ -37,7 +43,7 @@ function SignInPage() {
           />
         )}
 
-        {open && <Modal setOpen={setOpen} closeModal={closeModal} />}
+        {open && <Modal open={open} setOpen={setOpen} closeModal={closeModal} />}
         <div className="sign-section-left">
           <div className="left-section-box">
             <img className="logo-img-xl" src={theme === "dark" ? logowhite : SignUpLogoImgBlack} alt="" />

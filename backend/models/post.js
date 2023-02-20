@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 
-const postSchema = mongoose.Schema(
+const postSchema = new mongoose.Schema(
   {
     userId: {
       type: Schema.Types.ObjectId, 
@@ -9,6 +9,10 @@ const postSchema = mongoose.Schema(
       required: true,
     },
     username: {
+      type: String,
+      // required: true,
+    },
+    nickname: {
       type: String,
       // required: true,
     },

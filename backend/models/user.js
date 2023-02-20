@@ -2,7 +2,7 @@ import mongoose, { SchemaType } from 'mongoose'
 import { hashedPassword } from '../security/auth.js'
 import {Schema} from "mongoose";
 
-const UserSchema = mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     username: {
       type: String,

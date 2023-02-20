@@ -4,64 +4,109 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-top: 2rem;
 
   .single-post-wraper {
     padding: 2rem;
+   
   }
 
   .user {
     display: flex;
     justify-content: space-between;
+    // border: 1px solid red;
     
 
     .addFriend-icon-container{
       
       display: flex;
       align-items: center;
+     
       
-
-      img{
-        width: 2.5rem;
-        height: 2.5rem;
-
-        &:hover {
+      &:hover {
           transform: scale(1.1);
           transition: 0.1s ease-in-out;
           cursor: pointer;
         }
+
+      img{
+        width: 4rem;
+        height: 4rem;
+        
+        
+
+        
       }
     }
 
     .userInfo {
       display: flex;
+      
       gap: 2rem;
       // border: 1px solid red;
       width: 100%;
-
+      // border: 1px solid red;
   
 
       img {
         width: 4rem;
         height: 4rem;
-        border-radius: 50%;
+        border-radius: 20%;
+        object-fit: cover;
+        padding: 0.1rem;
       }
 
       .details {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         // border: 1px solid red;
-        justify-content: space-between;
+        // border: 1px solid red;
+
+.nickname-container{
+  display: flex;
+  align-items: center;
+ margin-bottom: 0.2rem;
+
+  .nickname{
+    font-size: 1.2rem;
+    
+  }
+
+  img{
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+
+.nameDate-container{
+    display: flex;
+  align-items: flex-end;
+    
+    
 
         .user-name {
           font-size: 1.5rem;
           font-weight: bold;
+          margin-right: 2rem;
         }
 
         .post-date {
-          font-size: 1.2rem;
+          
+          font-size: 1.3rem;
+          list-style: disc;
+          
+
+          // &::before{
+          //   content: "";
+            
+
+          // }
+
         }
+      }   
       }
     }
   }

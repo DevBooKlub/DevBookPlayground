@@ -31,13 +31,13 @@ function Comments() {
   return (
     <div className="comments-container">
       <div className="write-comment-container">
-        <img src={userOneImg} alt="" />
-        <input type="text" placeholder="Write comment" />
-        <button className="text backgroundInner border">Send!</button>
+        <img className="borderImg" src={userOneImg} alt="" />
+        <input className="button-TextInput text" type="text" placeholder="Write comment" />
+        <button className="text backgroundInner button-TextInput border">Send!</button>
       </div>
       
         <div className="comment">
-          <img src={state.currentUser.userPic} alt="" />
+          <img className="borderImg" src={state.currentUser.userPic} alt="" />
           <div className="user-info-comment">
             <span className="text">{state.currentUser.username}</span>
             <p className="text">{state.currentUser.username}</p>
