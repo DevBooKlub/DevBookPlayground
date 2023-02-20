@@ -12,6 +12,10 @@ const postSchema = mongoose.Schema(
       type: String,
       // required: true,
     },
+    nickname: {
+      type: String,
+      // required: true,
+    },
     desc: String,
     title: String,
     picturePath: String,

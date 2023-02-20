@@ -17,10 +17,10 @@ function ProfileLargeComponent({ theme }) {
   }, [state])
 
   return (
-    <div className='ProfileLargeComponent-container backgroundInner box-shadow'>
+    <div className='ProfileLargeComponent-container backgroundInner '>
       <div className='banner-container'>
         <img
-          className='banner-img'
+          className='banner-img '
           src={
             currentUser.userBanner
               ? currentUser.userBanner
@@ -32,7 +32,7 @@ function ProfileLargeComponent({ theme }) {
         />
 
         <img
-          className='profile-img border'
+          className='profile-img borderImg'
           src={currentUser.userPic ? currentUser.userPic : defaultUserPic}
           alt=''
         />

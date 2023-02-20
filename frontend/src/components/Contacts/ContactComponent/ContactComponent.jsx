@@ -7,6 +7,9 @@ import removeFriendLight from "../../../assets/img/removeLight.png";
 import chatLight from "../../../assets/img/chatLight.png";
 import chatDark from "../../../assets/img/chatDark.png";
 import { useNavigate } from "react-router-dom";
+import chat from "../../../assets/img/chatorange.png";
+import closeIconRed from "../../../assets/img/removeContact.png";
+import removeContactLight from "../../../assets/img/removeContactLight.png";
 import axios from "axios";
 
 function ContactComponent({ theme, friend, setTheme, open, setOpen }) {
@@ -52,11 +55,11 @@ function ContactComponent({ theme, friend, setTheme, open, setOpen }) {
   }
 
   return (
-    <div className="contact-wrapper">
+    <div className="contact-wrapper ">
       <div onClick={handleClick} className="contactComponent-container">
         <>
           <img
-            className="contact-img"
+            className="contact-img borderImg"
             src={"http://localhost:5555" + friend.userPic}
             alt=""
           />
@@ -64,15 +67,15 @@ function ContactComponent({ theme, friend, setTheme, open, setOpen }) {
         </>
       </div>
       <div className="contact-icons-container">
-        <img
+        {/* <img
           onClick={true ? openModal : closeModal}
-          src={theme === "dark" ? chatLight : chatDark}
+          src={theme === "dark" ? chat : chatDark}
           alt=""
-        />
+        /> */}
         <img
           onClick={removeFriend}
           className="removeFriend-icon"
-          src={theme === "dark" ? removeFriendLight : removeFriendDark}
+          src={theme === "dark" ? closeIconRed : removeContactLight}
           alt=""
         />
       </div>

@@ -110,7 +110,7 @@ function Modal({ setOpen }) {
               By creating an account you agree to our{" "}
               <a href="#">Terms & Privacy</a>.
             </p>
-            <button  type="submit" className="register-button backgroundInner">
+            <button  type="submit" className="register-button buuton-TextInput">
               Register
             </button>
           </form>

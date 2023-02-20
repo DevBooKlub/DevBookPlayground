@@ -1,14 +1,11 @@
 .current-user-container {
   display: flex;
-  min-width:8rem;
-  border: 1px solid black;
-  border-radius: 20px;
+  min-width: 13rem;
   justify-items: center;
   align-items: center;
-  padding: 0.4rem;
-  margin-right: 1rem;
+  padding: 0.5rem;
+  height: 3.5rem;
   cursor: pointer;
-  
 
   &:hover {
     transform: scale(1.1);
@@ -16,14 +13,16 @@
   }
 
   .user-img-nav {
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 40%;
+    object-fit: cover;
   }
 
   .user-name {
     font-size: 1.3rem;
     margin-left: 1rem;
+    text-align: center;
 
     @media screen and (max-width: 1090px) {
       display: none;

@@ -5,7 +5,7 @@ import logoBlack from "../../../assets/img/logosmall.png";
 import closeIcon from "../../../assets/img/close.png";
 import { AuthContext } from "../../../context/authContext";
 
-function EditProfile({ setOpen }) {
+function EditProfile({open, setOpen }) {
   const { state, dispatch } = useContext(AuthContext);
   console.log(state);
 
@@ -72,8 +72,10 @@ function EditProfile({ setOpen }) {
         config
       );
       dispatch({ type: "UPDATEUSER", payload: response.data.data });
-      
       console.log(response.data);
+      closeModal();
+      alert('Profile successfully updated.')
+      
     } catch (error) {
       console.log(error);
     }
